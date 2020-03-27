@@ -1,5 +1,4 @@
-# Pedrl-Algorithm工程介绍
-PDERL算法的测试关键代码和测试数据。  
+# Pedrl-Algorithm工程介绍 
 本工程在VS2017下开发，用C#在.net core 2.1上实现。    
 这是一个RESTFUL风格的WebApi工程。    
 接口文件在["./Code/Pderl/Controllers/DemController.cs "](https://github.com/blct-w/Pedrl-Algorithm/blob/master/Code/Pderl/Controllers/DemController.cs)处编写。    
@@ -17,7 +16,6 @@ PDERL算法的测试关键代码和测试数据。
 
 
 # Pedrl-Algorithm   
-Key code and test data for Pedrl algorithm.  
 This project is code in vs2017 with C# under .net core 2.1.  
 This a restful WebApi project.   
 The api service is code in the ["./Code/Pderl/Controllers/DemController.cs "](https://github.com/blct-w/Pedrl-Algorithm/blob/master/Code/Pderl/Controllers/DemController.cs); 
