@@ -5,7 +5,7 @@ PDERL算法的测试关键代码和测试数据。
 接口文件在["./Code/Pderl/Controllers/DemController.cs "](https://github.com/blct-w/Pedrl-Algorithm/blob/master/Code/Pderl/Controllers/DemController.cs)处编写。    
 主要功能函数在["./Code/Pderl/DemAnalysisHandle.cs"](https://github.com/blct-w/Pedrl-Algorithm/blob/master/Code/Pderl/DemAnalysisHandle.cs)处编写。    
 这是一个算法测试工程，测试用的DEM数据并不是连续的，按文件放在["./DEM/"](https://github.com/blct-w/Pedrl-Algorithm/tree/master/DEM)。读者也可自行添加DEM文件（只支持*.tif格式）。   
-如有需要可以联系我邮箱blct_w@foxmail.com
+如有需要可以联系我[邮箱](blct_w@foxmail.com)。
 
 # 按如下步骤进行代码测试:
 1. 拷贝proj.dll到您电脑的执行文件夹，Windows系统为“C:\Windows\System32”；
