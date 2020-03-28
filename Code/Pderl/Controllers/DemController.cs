@@ -84,45 +84,101 @@ namespace PderlTest.Controllers
 
         #endregion
 
-        #region 自动测试
+        #region Experiment and analysis
 
         /// <summary>
-        /// 自动测试，主要为获得大量测试结果，可以自由组合，具体的计算结果将写入csv
+        /// The experiment of Figure 7
         /// </summary>
-        /// <param name="r"></param>
-        /// <param name="dh"></param>
-        /// <param name="maxcount"></param>
-        /// <returns></returns>
-        [HttpGet("analysis_auto_test")]
-        public ActionResult<string> DoAnalysisTimeRodomRepeateAll_AutoTest()
+        [HttpGet("analysis_auto_test_accuracy")]
+        public ActionResult<string> DoAnalysisTimeRodomRepeateAll_AutoTest_Accuracy()
         {
             new Thread(new ParameterizedThreadStart((ob) =>
             {
-                //double h = 5000;
-                for (double h = 1; h < 5001; h += 1)
+                Random r = new Random();
+
+                double step = 0;
+
+                SetDem("ASTGTM2_N41E119_dem");
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
+
+                SetDem("ASTGTM2_N34E114_dem");
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
+
+                SetDem("ASTGTM2_N28E097_dem");
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
+                step = r.NextDouble() * 0.6;
+                DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
+                for (double h = 25; h < 5001; h += 25)
                 {
                     SetDem("ASTGTM2_N41E119_dem");
-                    DoAnalysisRodomRepeateWithoutR3(0.1, h, 1);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
 
                     SetDem("ASTGTM2_N34E114_dem");
-                    DoAnalysisRodomRepeateWithoutR3(0.1, h, 1);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
 
                     SetDem("ASTGTM2_N28E097_dem");
-                    DoAnalysisRodomRepeateWithoutR3(0.1, h, 1);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
+                    step = r.NextDouble() * 0.6;
+                    DoAnalysis_TimeAndErrorTestWithR3_Report(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
                 }
 
             })).Start();
             return "开始测试";
         }
 
-
         /// <summary>
-        /// 自动测试邻域错误（一个进程只能有一个测试）
+        /// The experiment of Figure 10 / Table 3
         /// </summary>
-        /// <param name="r"></param>
-        /// <param name="dh"></param>
-        /// <param name="maxcount"></param>
-        /// <returns></returns>
         [HttpGet("analysis_auto_test_neighbor_err")]
         public ActionResult<string> DoAnalysisTimeRodomRepeateAll_AutoTest_NeighborErr(int p = 0)
         {
@@ -142,123 +198,700 @@ namespace PderlTest.Controllers
 
                 for (double h = 2; h < 54; h += 2)
                 {
-                    DoAnalysisGetNeighborErrWithoutR3(0.051, h, 500, demFile);
+                    DoAnalysis_GetNeighborErr_Report(0.051, h, 500, demFile);
                 }
 
+
+            })).Start();
+            return "开始测试";
+        }
+
+
+        /// <summary>
+        /// The experiment of Figure 11
+        /// </summary>
+        [HttpGet("analysis_auto_test_v_on_fixed_height_with_diffrent_r")]
+        public ActionResult<string> DoAnalysisTimeRodomRepeateAll_AutoTest()
+        {
+            new Thread(new ParameterizedThreadStart((ob) =>
+            {
+                SetDem("ASTGTM2_N41E119_dem");
+                for (double h = 1; h < 5001; h += 1)
+                {
+                    DoAnalysis_TimeTestWithoutR3_Report(0.1, h, 1);
+
+                }
 
             })).Start();
             return "开始测试";
         }
 
         /// <summary>
-        /// 批量测试精度
+        /// The experiment of Figure 12
         /// </summary>
-        /// <param name="r"></param>
-        /// <param name="dh"></param>
-        /// <param name="maxcount"></param>
-        /// <returns></returns>
-        [HttpGet("analysis_auto_test_accuracy")]
-        public ActionResult<string> DoAnalysisTimeRodomRepeateAll_AutoTest_Accuracy()
+        [HttpGet("analysis_auto_test_v_on_different_height_with_a_fixed_r")]
+        public ActionResult<string> DoAnalysisTimeRodomRepeateAll_AutoTest_DiffHeightFixedR()
         {
             new Thread(new ParameterizedThreadStart((ob) =>
             {
-                Random r = new Random();
-
-                double step = 0;
-
-                SetDem("ASTGTM2_N41E119_dem");
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, 1, 10);
-
-                SetDem("ASTGTM2_N34E114_dem");
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, 1, 10);
-
-                SetDem("ASTGTM2_N28E097_dem");
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
-                step = r.NextDouble() * 0.6;
-                DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, 1, 10);
-                for (double h = 25; h < 5001; h += 25)
+                for (double h = 1; h < 5001; h += 1)
                 {
                     SetDem("ASTGTM2_N41E119_dem");
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(119.1, 41.3 + step, 119.9, 41.1 + step, h, 10);
+                    DoAnalysis_TimeTestWithoutR3_Report(0.1, h, 1);
 
                     SetDem("ASTGTM2_N34E114_dem");
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(114.1, 34.3 + step, 114.9, 34.1 + step, h, 10);
+                    DoAnalysis_TimeTestWithoutR3_Report(0.1, h, 1);
 
                     SetDem("ASTGTM2_N28E097_dem");
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
-                    step = r.NextDouble() * 0.6;
-                    DoAnalysisAllPrecRe(097.1, 28.3 + step, 097.9, 28.1 + step, h, 10);
+                    DoAnalysis_TimeTestWithoutR3_Report(0.1, h, 1);
                 }
-
-                //SetDem("ASTGTM2_N41E119_dem");
-                //DoAnalysisAllPrecRe(119.1, 41.3, 119.9, 41.1, 1, 1005);
-                //DoAnalysisAllPrecRe(119.1, 41.3, 119.9, 41.1, 100, 1005);
-                //DoAnalysisAllPrecRe(119.1, 41.3, 119.9, 41.1, 1000, 1005);
-
-                //SetDem("ASTGTM2_N34E114_dem");
-                //DoAnalysisAllPrecRe(114.1, 34.3, 114.9, 34.1, 1, 1005);
-                //DoAnalysisAllPrecRe(114.1, 34.3, 114.9, 34.1, 100, 1005);
-                //DoAnalysisAllPrecRe(114.1, 34.3, 114.9, 34.1, 1000, 1005);
-
-                //SetDem("ASTGTM2_N28E097_dem");
-                //DoAnalysisAllPrecRe(097.1, 28.3, 097.9, 28.1, 1, 1005);
-                //DoAnalysisAllPrecRe(097.1, 28.3, 097.9, 28.1, 100, 1005);
-                //DoAnalysisAllPrecRe(097.1, 28.3, 097.9, 28.1, 1000, 1005);
 
             })).Start();
             return "开始测试";
         }
 
+        #endregion
+
+        #region 记录性测试，这几个方法会记录日志，主要是给自动测试准备的，可以组合调用
+        /// <summary>
+        /// 【有报告输出】
+        /// 计算PDERL、X-PDERL、XDraw、Rp、R3；
+        /// 指定范围、高度、实验次数；
+        /// 精度参照R3；
+        /// 中心点、半径随机；
+        /// 记录交叉点信息、耗时、错误率
+        /// </summary>
+        /// <param name="count">重复次数</param>
+        /// <returns></returns>
+        [HttpGet("analysis_pderl_r/{minlon}/{maxlat}/{maxLon}/{minLat}/{dh}/{count}")]
+        public ActionResult<object> DoAnalysis_TimeAndErrorTestWithR3_Report(double minLon, double maxLat,
+            double maxLon, double minLat, double dh, int count)
+        {
+            Random radom = new Random();
+            List<object> items = new List<object>();
+            if (maxLat - minLat < 0.027 || maxLon - minLon < 0.027)
+                throw new Exception("运算范围太小");
+            //using (var fs = new FileStream("../../RunningLog/各算法与R3算法精度比较_"
+            //    + demAnalysisService.FileName + "_" + dh.ToString() + "_[" + minLon + "：" + maxLon + "]_[" + minLat + "：" + maxLat + "]_" + DateTime.Now.ToLongDateString() + DateTime.Now.ToLongTimeString().Replace(":", "：") + ".csv", FileMode.Create, FileAccess.ReadWrite))
+            if (!System.IO.File.Exists("../../RunningLog/各高度各算法精度速度随机测试.csv"))
+            {
+                if (!Directory.Exists("../../RunningLog"))
+                    Directory.CreateDirectory("../../RunningLog");
+                using (var fs = new FileStream("../../RunningLog/各高度各算法精度速度随机测试.csv", FileMode.Create, FileAccess.ReadWrite))
+                using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+                {
+                    sw.WriteLine("数据文件,位置,计算点量,通视率,视点高度," +
+                    "最长参考线长度,有效参考线总长度,交叉点总数," +
+                    "R3耗时,PDERL耗时,X-PDERL耗时,XDraw耗时,RefF耗时," +
+                    "PDERL第一类错误,PDERL第二类错误,PDERL总错误," +
+                    "PDERL第一类错误率,PDERL第二类错误率,PDERL整体错误率," +
+                    "XPDERL第一类错误,XPDERL第二类错误,XPDERL总错误," +
+                    "XPDERL第一类错误率,XPDERL第二类错误率,XPDERL整体错误率," +
+                    "XDraw第一类错误,XDraw第二类错误,XDraw总错误," +
+                    "XDraw第一类错误率,XDraw第二类错误率,XDraw整体错误率," +
+                    "RefF第一类错误,RefF第二类错误,RefF总错误," +
+                    "RefF第一类错误率,RefF第二类错误率,RefF整体错误率,"
+                    );
+                    sw.Flush();
+                }
+            }
+            using (var fs = new FileStream("../../RunningLog/各高度各算法精度速度随机测试.csv", FileMode.Append, FileAccess.Write))
+            using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+            {
+                for (int k = 0; k < count; k++)
+                {
+                    var lon1 = radom.NextDouble() * (maxLon - minLon) + minLon;
+                    var lon2 = radom.NextDouble() * (maxLon - minLon) + minLon;
+                    var rlon = Math.Abs(lon1 - lon2) / 2;
+                    if (rlon < 0.0027)
+                    {
+                        k--;
+                        continue;
+                    }
+                    var lon = (Math.Min(lon1, lon2) + Math.Max(lon1, lon2)) / 2;
+
+                    var lat1 = radom.NextDouble() * (maxLat - minLat) + minLat;
+                    var lat2 = radom.NextDouble() * (maxLat - minLat) + minLat;
+                    var rlat = Math.Abs(lat1 - lat2) / 2;
+                    if (rlat < 0.0027)
+                    {
+                        k--;
+                        continue;
+                    }
+                    var lat = (Math.Min(lat1, lat2) + Math.Max(lat1, lat2)) / 2;
+
+                    double toLon = 0, toLat = 0;
+
+                    if (rlat > rlon)
+                    {
+                        toLon = lon + rlon;
+                        toLat = lat;
+                    }
+                    else
+                    {
+                        toLon = lon;
+                        toLat = lat + rlat;
+                    }
+
+                    var date = DateTime.Now;
+
+                    //PDERL
+                    demAnalysisService.Analysis.DoAnalysisByPedrlLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_PDERL, out double demMinX, out double demMinY, out double perX, out double perY);
+                    var PDERLTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //PDERL参照（主要求交叉点数量等信息，为评价地形做辅助工作）
+                    demAnalysisService.Analysis.DoAnalysisByPderlLonLat_Refer(lon, lat, toLon, toLat, dh,
+                        out int[,] result1, out demMinX, out demMinY, out perX, out perY);
+                    var TimeRefer = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    ////X-PDERL
+                    //demAnalysisService.Analysis.DoAnalysisByXPderlLonLat(lon, lat, toLon, toLat, dh,
+                    //    out int[,] result_XPDERL, out demMinX, out demMinY, out perX, out perY);
+                    //var TimeXPDERL = DateTime.Now - date;
+                    //date = DateTime.Now;
+
+                    //XDraw
+                    demAnalysisService.Analysis.DoAnalysisByXDrawLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_XDraw, out demMinX, out demMinY, out perX, out perY);
+                    var TimeXDraw = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //Rff
+                    demAnalysisService.Analysis.DoAnalysisByRpLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_RefF, out demMinX, out demMinY, out perX, out perY);
+                    var TimeRefF = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //R3算法
+                    demAnalysisService.Analysis.DoAnalysisByR3LonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_R3, out demMinX, out demMinY, out perX, out perY);
+                    var R3Time = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    int lonCount = result_R3.GetLength(0);
+                    int latCount = result_R3.GetLength(1);
+                    int AllPointCount = lonCount * latCount;
+
+                    //获取通视率
+                    double VisibleRate = GetVisibleRate(result_R3);
+
+                    //错点率
+                    GetErrRate(result_PDERL, result_R3, lonCount, latCount, AllPointCount,
+                        out int PDERLVisibleErrCount, out int PDERLUnVisibleErrCount, out int PDERLAllErrCount, out double PDERLVisibleErrRate, out double PDERLUnVisibleErrRate, out double PDERLErrRate);
+
+                    //GetErrRate(result_XPDERL, result_R3, lonCount, latCount, AllPointCount,
+                    //    out int XPDERLVisibleErrCount, out int XPDERLUnVisibleErrCount, out int XPDERLAllErrCount, out double XPDERLVisibleErrRate, out double XPDERLUnVisibleErrRate, out double XPDERLErrRate);
+
+                    GetErrRate(result_RefF, result_R3, lonCount, latCount, AllPointCount,
+                        out int RefFVisibleErrCount, out int RefFUnVisibleErrCount, out int RefFAllErrCount, out double RefFVisibleErrRate, out double RefFUnVisibleErrRate, out double RefFErrRate);
+                    GetErrRate(result_XDraw, result_R3, lonCount, latCount, AllPointCount,
+                        out int XDrawVisibleErrCount, out int XDrawUnVisibleErrCount, out int XDrawAllErrCount, out double XDrawVisibleErrRate, out double XDrawUnVisibleErrRate, out double XDrawErrRate);
+
+                    string Location = "E" + lon.ToString() + "°，N" + lat.ToString() + "°";
+                    double PerPointTime = PDERLTime.TotalSeconds / AllPointCount * 1000000000;
+
+                    int MaxReferLength = demAnalysisService.Analysis.pde_max_refer_length;
+                    int AllReferLength = demAnalysisService.Analysis.pde_all_refer_length;
+                    int CrossPointCount = demAnalysisService.Analysis.pde_cross_point_count;
+                    items.Add(new
+                    {
+                        Location,//坐标
+                        R3Time = R3Time.TotalSeconds,//R3计算时间
+                        Time = PDERLTime.TotalSeconds,//计算时间
+                        PerPointTime,//单点耗时（单位纳秒）
+                        AllPointCount,//共计算了多少点量
+                        VisibleRate,//计算区域的通视率
+                        PDERLVisibleErrCount,//可见点判错数量
+                        PDERLUnVisibleErrCount,//不可见点判错数量
+                        PDERLAllErrCount,//总错误点数
+                        PDERLVisibleErrRate,//可见点错误率
+                        PDERLUnVisibleErrRate,//不可见点错误率
+                        PDERLErrRate,//整体错误率
+                        MaxReferLength,//交叉点数量
+                        AllReferLength,//交叉点计算数量
+                        CrossPointCount //交叉点计算失败数量
+                    });
+
+                    sw.WriteLine(demAnalysisService.FileName + "," + Location + "," + AllPointCount + "," + VisibleRate + "," + dh + ","
+                        + MaxReferLength + "," + AllReferLength + "," + CrossPointCount + ","
+                        + R3Time.TotalSeconds + "," + PDERLTime.TotalSeconds + ",-," + TimeXDraw.TotalSeconds + "," + TimeRefF.TotalSeconds + ","
+                        + PDERLVisibleErrCount + "," + PDERLUnVisibleErrCount + "," + PDERLAllErrCount + ","
+                        + PDERLVisibleErrRate + "," + PDERLUnVisibleErrRate + "," + PDERLErrRate +
+                        ",-,-,-,-,-,-,"
+                        + XDrawVisibleErrCount + "," + XDrawUnVisibleErrCount + "," + XDrawAllErrCount + ","
+                        + XDrawVisibleErrRate + "," + XDrawUnVisibleErrRate + "," + XDrawErrRate + ","
+                        + RefFVisibleErrCount + "," + RefFUnVisibleErrCount + "," + RefFAllErrCount + ","
+                        + RefFVisibleErrRate + "," + RefFUnVisibleErrRate + "," + RefFErrRate + ","
+                        );
+                }
+
+
+            }
+            return items;
+        }
+
+        /// <summary>
+        /// 【有报告输出】
+        /// 计算PDERL、X-PDERL、XDraw、Rp；
+        /// 指定半径、高度、次数；
+        /// 不计算精度；
+        /// 中心点随机；
+        /// 记录交叉点信息、耗时
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="dh"></param>
+        /// <param name="max">最多计算多少个点，大于0有效</param>
+        /// <returns></returns>
+        [HttpGet("analysis_all_fixed_withoutr3/{r}/{dh}/{max}")]
+        public void DoAnalysis_TimeTestWithoutR3_Report(double r, double dh, int max)
+        {
+            if (max < 1) return;
+            Random radom = new Random();
+
+            double dlon = demAnalysisService.DemData.DX;
+            double dlat = demAnalysisService.DemData.DY;
+            var startLon = demAnalysisService.DemData.StartX + r + dlon + 0.00181;//避免正好在格网上
+            var startLat = demAnalysisService.DemData.StartY + r + dlat + 0.00181;
+            var maxLon = demAnalysisService.DemData.MaxLon - r - dlon - 0.00181;
+            var maxLat = demAnalysisService.DemData.MaxY - r - dlat - 0.00181;
+
+            if (!System.IO.File.Exists("../../RunningLog/固定半径速度测试.csv"))
+            {
+                if (!Directory.Exists("../../RunningLog"))
+                    Directory.CreateDirectory("../../RunningLog");
+                using (var fs = new FileStream("../../RunningLog/固定半径速度测试.csv", FileMode.Create, FileAccess.ReadWrite))
+                using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+                {
+                    sw.WriteLine("数据文件,经度,纬度,半径网格数,总点量,视点高度,通视率," +
+                        "求交点次数,参考线最大节点数,参考线总节点数," +
+                        "PDERL算法耗时(秒),XPDERL算法耗时(秒),参考面算法耗时(秒),XDraw算法耗时(秒)");
+                    sw.Flush();
+                }
+            }
+            using (var fs = new FileStream("../../RunningLog/固定半径速度测试.csv", FileMode.Append, FileAccess.Write))
+            using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+            {
+                double count = 0;
+
+                while (true)
+                {
+                    double lon = startLon + radom.NextDouble() * (maxLon - startLon);
+                    double lat = startLat + radom.NextDouble() * (maxLat - startLat);
+
+                    var toLon = lon + r;
+                    var toLat = lat;
+
+                    var date = DateTime.Now;
+                    //PDERL算法
+                    demAnalysisService.Analysis.DoAnalysisByPedrlLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_PDERL, out double demMinX, out double demMinY, out double perX, out double perY);
+                    var PDERLTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //PDERL算法
+                    demAnalysisService.Analysis.DoAnalysisByPderlLonLat_Refer(lon, lat, toLon, toLat, dh,
+                        out int[,] result_PDERL_Refer, out double utmLeftLon_Refer, out double utmBottomLat_Refer, out double perX_Refer, out double perY_Refer);
+                    var PDERLTime_Refer = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //demAnalysisService.Analysis.DoAnalysisByXPderlLonLat(lon, lat, toLon, toLat, dh,
+                    //    out int[,] result_XPDERL, out double utmLeftLon2, out double utmBottomLat2, out double perX2, out double perY2);
+                    //var XPDERLTime = DateTime.Now - date;
+                    //date = DateTime.Now;
+
+
+                    demAnalysisService.Analysis.DoAnalysisByRpLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_RefF, out double utmLeftLon5, out double utmBottomLat5, out double perX5, out double perY5);
+                    var RefFTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+
+                    demAnalysisService.Analysis.DoAnalysisByXDrawLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_XDraw, out double utmLeftLon3, out double utmBottomLat3, out double perX3, out double perY3);
+                    var XDrawTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+
+                    int lonCount = result_PDERL.GetLength(0);
+                    int latCount = result_PDERL.GetLength(1);
+                    int AllPointCount = lonCount * latCount;
+                    //获取通视率
+                    double VisibleRate = GetVisibleRate(result_PDERL);
+
+                    sw.WriteLine(demAnalysisService.FileName + "," + lon + "," + lat + "," + lonCount / 2 + "," + AllPointCount + "," + dh + "," + VisibleRate + ","
+                    + demAnalysisService.Analysis.pde_cross_point_count + "," + demAnalysisService.Analysis.pde_max_refer_length + "," + demAnalysisService.Analysis.pde_all_refer_length + "," +
+                    +PDERLTime.TotalSeconds + ",-," + RefFTime.TotalSeconds + "," + XDrawTime.TotalSeconds);
+                    sw.Flush();
+
+                    count++;
+                    if (count > max)
+                        return;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 【有报告输出】
+        /// 计算PDERL、X-PDERL、XDraw、Rp、R3；
+        /// 指定半径、高度、次数；
+        /// 不计算精度；
+        /// 中心点随机；
+        /// 记录交叉点信息、耗时
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="dh"></param>
+        /// <param name="max">最多计算多少个点，大于0有效</param>
+        /// <returns></returns>
+        [HttpGet("analysis_all_fixed_withr3/{r}/{dh}/{max}")]
+        public void DoAnalysis_TimeTestWithR3_Report(double r, double dh, int max)
+        {
+            if (max < 1) return;
+            Random radom = new Random();
+
+            double dlon = demAnalysisService.DemData.DX;
+            double dlat = demAnalysisService.DemData.DY;
+            var startLon = demAnalysisService.DemData.StartX + r + dlon + 0.00181;//避免正好在格网上
+            var startLat = demAnalysisService.DemData.StartY + r + dlat + 0.00181;
+            var maxLon = demAnalysisService.DemData.MaxLon - r - dlon - 0.00181;
+            var maxLat = demAnalysisService.DemData.MaxY - r - dlat - 0.00181;
+
+            if (!System.IO.File.Exists("../../RunningLog/固定半径速度测试.csv"))
+            {
+                if (!Directory.Exists("../../RunningLog"))
+                    Directory.CreateDirectory("../../RunningLog");
+                using (var fs = new FileStream("../../RunningLog/固定半径速度测试.csv", FileMode.Create, FileAccess.ReadWrite))
+                using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+                {
+                    sw.WriteLine("数据文件,经度,纬度,半径网格数,总点量,视点高度,通视率," +
+                        "求交点次数,参考线最大节点数,参考线总节点数," +
+                        "R3算法耗时(秒),PDERL算法耗时(秒),XPDERL算法耗时(秒),参考面算法耗时(秒),XDraw算法耗时(秒)");
+                    sw.Flush();
+                }
+            }
+            using (var fs = new FileStream("../../RunningLog/固定半径速度测试.csv", FileMode.Append, FileAccess.Write))
+            using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+            {
+                double count = 0;
+
+                while (true)
+                {
+                    double lon = startLon + radom.NextDouble() * (maxLon - startLon);
+                    double lat = startLat + radom.NextDouble() * (maxLat - startLat);
+
+                    var toLon = lon + r;
+                    var toLat = lat;
+
+                    var date = DateTime.Now;
+                    //PDERL算法参考
+                    demAnalysisService.Analysis.DoAnalysisByPderlLonLat_Refer(lon, lat, toLon, toLat, dh,
+                        out int[,] result_PDERL_Refer, out double utmLeftLon_Refer, out double utmBottomLat_Refer, out double perX_Refer, out double perY_Refer);
+                    var PDERLTime_Refer = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //R3算法
+                    demAnalysisService.Analysis.DoAnalysisByR3LonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_R3, out double utmLeftLon2, out double utmBottomLat2, out double perX2, out double perY2);
+                    var R3Time = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //PDERL算法
+                    demAnalysisService.Analysis.DoAnalysisByPedrlLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_PDERL, out double demMinX, out double demMinY, out double perX, out double perY);
+                    var PDERLTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //demAnalysisService.Analysis.DoAnalysisByXPderlLonLat(lon, lat, toLon, toLat, dh,
+                    //    out int[,] result_XPDERL, out double utmLeftLon2, out double utmBottomLat2, out double perX2, out double perY2);
+                    //var XPDERLTime = DateTime.Now - date;
+                    //date = DateTime.Now;
+
+
+                    demAnalysisService.Analysis.DoAnalysisByRpLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_RefF, out double utmLeftLon5, out double utmBottomLat5, out double perX5, out double perY5);
+                    var RefFTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+
+                    demAnalysisService.Analysis.DoAnalysisByXDrawLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_XDraw, out double utmLeftLon3, out double utmBottomLat3, out double perX3, out double perY3);
+                    var XDrawTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+
+                    int lonCount = result_PDERL.GetLength(0);
+                    int latCount = result_PDERL.GetLength(1);
+                    int AllPointCount = lonCount * latCount;
+                    //获取通视率
+                    double VisibleRate = GetVisibleRate(result_PDERL);
+
+                    sw.WriteLine(demAnalysisService.FileName + "," + lon + "," + lat + "," + lonCount / 2 + "," + AllPointCount + "," + dh + "," + VisibleRate + ","
+                    + demAnalysisService.Analysis.pde_cross_point_count + "," + demAnalysisService.Analysis.pde_max_refer_length + "," + demAnalysisService.Analysis.pde_all_refer_length + "," +
+                    + R3Time.TotalSeconds + "," + PDERLTime.TotalSeconds + ", -," + RefFTime.TotalSeconds + "," + XDrawTime.TotalSeconds);
+                    sw.Flush();
+
+                    count++;
+                    if (count > max)
+                        return;
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// 【有报告输出】
+        /// 计算PDERL、X-PDERL、XDraw、Rp、R3；
+        /// 指定半径、高度、次数；
+        /// 精度参照R3；
+        /// 中心点随机；
+        /// 记录错误率、邻域错误
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="dh"></param>
+        /// <param name="max">最多计算多少个点，大于0有效</param>
+        /// <returns></returns>
+        [HttpGet("analysis_all_fixed_neighbor_err/{r}/{dh}/{max}")]
+        public void DoAnalysis_GetNeighborErr_Report(double r, double dh, int max, string fileNameExtend = "")
+        {
+            if (max < 1) return;
+            Random radom = new Random();
+
+            double dlon = demAnalysisService.DemData.DX;
+            double dlat = demAnalysisService.DemData.DY;
+            var startLon = demAnalysisService.DemData.StartX + r + dlon + 0.00181;//避免正好在格网上
+            var startLat = demAnalysisService.DemData.StartY + r + dlat + 0.00181;
+            var maxLon = demAnalysisService.DemData.MaxLon - r - dlon - 0.00181;
+            var maxLat = demAnalysisService.DemData.MaxY - r - dlat - 0.00181;
+
+            if (!Directory.Exists("../../RunningLog"))
+                Directory.CreateDirectory("../../RunningLog");
+            string fileName = "../../RunningLog/测试各邻域错误数" + fileNameExtend + ".csv";
+
+            if (!System.IO.File.Exists(fileName))
+            {
+                using (var fs = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite))
+                using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+                {
+                    sw.WriteLine("数据文件,经度,纬度,半径网格数,总点量,视点高度,通视率,PDERL错误率,XPDERL错误率,XDraw错误率,参考面错误率," +
+                        "1邻域（PDERL）,2邻域（PDERL）,3邻域（PDERL）,4邻域（PDERL）,5邻域（PDERL）,6邻域（PDERL）,7邻域（PDERL）,8邻域（PDERL）,9邻域（PDERL）,10邻域（PDERL）," +
+                        "1邻域（XPDERL）,2邻域（XPDERL）,3邻域（XPDERL）,4邻域（XPDERL）,5邻域（XPDERL）,6邻域（XPDERL）,7邻域（XPDERL）,8邻域（XPDERL）,9邻域（XPDERL）,10邻域（XPDERL）," +
+                        "1邻域（XDraw）,2邻域（XDraw）,3邻域（XDraw）,4邻域（XDraw）,5邻域（XDraw）,6邻域（XDraw）,7邻域（XDraw）,8邻域（XDraw）,9邻域（XDraw）,10邻域（XDraw）," +
+                        "1邻域（RP）,2邻域（RP）,3邻域（RP）,4邻域（RP）,5邻域（RP）,6邻域（RP）,7邻域（RP）,8邻域（RP）,9邻域（RP）,10邻域（RP）");
+                    sw.Flush();
+                }
+            }
+            using (var fs = new FileStream(fileName, FileMode.Append, FileAccess.Write))
+            using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+            {
+                double count = 0;
+
+                while (true)
+                {
+                    double lon = startLon + radom.NextDouble() * (maxLon - startLon);
+                    double lat = startLat + radom.NextDouble() * (maxLat - startLat);
+
+                    var toLon = lon + r;
+                    var toLat = lat;
+
+                    var date = DateTime.Now;
+
+                    //R3
+                    demAnalysisService.Analysis.DoAnalysisByR3LonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_R3, out double utmLeftLon_Refer, out double utmBottomLat_Refer, out double perX_Refer, out double perY_Refer);
+                    var PDERLTime_R3 = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //PDERL算法
+                    demAnalysisService.Analysis.DoAnalysisByPedrlLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_PDERL, out double demMinX, out double demMinY, out double perX, out double perY);
+                    var PDERLTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //demAnalysisService.Analysis.DoAnalysisByXPderlLonLat(lon, lat, toLon, toLat, dh,
+                    //    out int[,] result_XPDERL, out double utmLeftLon2, out double utmBottomLat2, out double perX2, out double perY2);
+                    //var XPDERLTime = DateTime.Now - date;
+                    //date = DateTime.Now;
+
+                    demAnalysisService.Analysis.DoAnalysisByRpLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_RefF, out double utmLeftLon5, out double utmBottomLat5, out double perX5, out double perY5);
+                    var RefFTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+
+                    demAnalysisService.Analysis.DoAnalysisByXDrawLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_XDraw, out double utmLeftLon3, out double utmBottomLat3, out double perX3, out double perY3);
+                    var XDrawTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+
+                    int lonCount = result_PDERL.GetLength(0);
+                    int latCount = result_PDERL.GetLength(1);
+                    int AllPointCount = lonCount * latCount;
+                    //获取通视率
+                    double VisibleRate = GetVisibleRate(result_PDERL);
+
+                    GetNeighborErr(result_PDERL, result_R3, 10, 0.9, out Dictionary<int, int> neighborErrCount_PDERL, out double errRate_PDERL, out double visibleErrRate_PDERL, out double unvisibleErrRate_PDERL);
+                    //GetNeighborErr(result_XPDERL, result_R3, 10, 0.9, out Dictionary<int, int> neighborErrCount_XPDERL, out double errRate_XPDERL, out double visibleErrRate_XPDERL, out double unvisibleErrRate_XPDERL);
+                    GetNeighborErr(result_XDraw, result_R3, 10, 0.9, out Dictionary<int, int> neighborErrCount_XDraw, out double errRate_XDraw, out double visibleErrRate_XDraw, out double unvisibleErrRate_XDraw);
+                    GetNeighborErr(result_RefF, result_R3, 10, 0.9, out Dictionary<int, int> neighborErrCount_RP, out double errRate_RP, out double visibleErrRate_RP, out double unvisibleErrRate_RP);
+
+                    sw.WriteLine(demAnalysisService.FileName + "," + lon + "," + lat + "," + lonCount / 2 + "," + AllPointCount + "," + dh + "," + VisibleRate + "," + errRate_PDERL + ",-," + errRate_XDraw + "," + errRate_RP + ","
+                    + neighborErrCount_PDERL[1] + "," + neighborErrCount_PDERL[2] + "," + neighborErrCount_PDERL[3] + "," + neighborErrCount_PDERL[4] + "," + neighborErrCount_PDERL[5] + ","
+                    + neighborErrCount_PDERL[6] + "," + neighborErrCount_PDERL[7] + "," + neighborErrCount_PDERL[8] + "," + neighborErrCount_PDERL[9] + "," + neighborErrCount_PDERL[10] + ","
+                    + "-,-,-,-,-,-,-,-,-,-,"
+                    + neighborErrCount_XDraw[1] + "," + neighborErrCount_XDraw[2] + "," + neighborErrCount_XDraw[3] + "," + neighborErrCount_XDraw[4] + "," + neighborErrCount_XDraw[5] + ","
+                    + neighborErrCount_XDraw[6] + "," + neighborErrCount_XDraw[7] + "," + neighborErrCount_XDraw[8] + "," + neighborErrCount_XDraw[9] + "," + neighborErrCount_XDraw[10] + ","
+                    + neighborErrCount_RP[1] + "," + neighborErrCount_RP[2] + "," + neighborErrCount_RP[3] + "," + neighborErrCount_RP[4] + "," + neighborErrCount_RP[5] + ","
+                    + neighborErrCount_RP[6] + "," + neighborErrCount_RP[7] + "," + neighborErrCount_RP[8] + "," + neighborErrCount_RP[9] + "," + neighborErrCount_RP[10]
+                    );
+                    sw.Flush();
+
+                    count++;
+                    if (count > max)
+                        return;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 【有报告输出】
+        /// 计算PDERL、X-PDERL、XDraw、Rp；
+        /// 指定半径、高度、次数；
+        /// 精度参照PDERL；
+        /// 中心点随机；
+        /// 记录交叉点信息、耗时、错误率
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="dh"></param>
+        /// <param name="maxcount"></param>
+        /// <returns></returns>
+        [HttpGet("analysis_time_fixed_r/{r}/{dh}/{maxcount}")]
+        public object DoAnalysis_TimeAndErrorTestWithoutR3_Report(double r, double dh, int maxcount)
+        {
+            Random radom = new Random();
+            List<object> items = new List<object>();
+
+            double dlon = demAnalysisService.DemData.DX;
+            double dlat = demAnalysisService.DemData.DY;
+            var startLon = demAnalysisService.DemData.StartX + r + dlon + 0.00181;//避免正好在格网上
+            var startLat = demAnalysisService.DemData.StartY + r + dlat + 0.00181;
+            var maxLon = demAnalysisService.DemData.MaxLon - r - dlon - 0.00181;
+            var maxLat = demAnalysisService.DemData.MaxY - r - dlat - 0.00181;
+
+            if (!Directory.Exists("../../RunningLog"))
+                Directory.CreateDirectory("../../RunningLog");
+            using (var fs = new FileStream("../../RunningLog/各类算法时间比较计算_"
+                + demAnalysisService.FileName + "_" + r.ToString() + "_" + dh.ToString() + "_" + DateTime.Now.ToLongDateString() + DateTime.Now.ToLongTimeString().Replace(":", "：") + ".csv", FileMode.Create, FileAccess.ReadWrite))
+            using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+            {
+
+                sw.WriteLine("数据文件,经度,纬度,半径,总点量,视点高度,通视率,参考线交点量" +
+                    ",参考线求交计算量,PDERL算法耗时(秒),XPDERL算法耗时(秒),参考面算法耗时(秒),XDraw算法耗时(秒)," +
+                    "XPDERL算法错点量,参考面算法错点量,XDraw算法错点量,XPDERL算法错点率,参考面算法错点率,XDraw算法错点率");
+                sw.Flush();
+
+                double count = 0;
+                while (count < maxcount)
+                {
+                    double lon = startLon + radom.NextDouble() * (maxLon - startLon);
+                    double lat = startLat + radom.NextDouble() * (maxLat - startLat);
+
+                    var toLon = lon + r;
+                    var toLat = lat;
+
+                    var date = DateTime.Now;
+
+                    //PDERL算法参照
+                    demAnalysisService.Analysis.DoAnalysisByPderlLonLat_Refer(lon, lat, toLon, toLat, dh,
+                        out int[,] result_PDERL_refer, out double utmLeftLon_refer, out double utmBottomLat_refer, out double perX_refer, out double perY_refer);
+                    var PDERLTime_refer = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //PDERL算法
+                    demAnalysisService.Analysis.DoAnalysisByPedrlLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_PDERL, out double demMinX, out double demMinY, out double perX, out double perY);
+                    var PDERLTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+                    //demAnalysisService.Analysis.DoAnalysisByXPderlLonLat(lon, lat, toLon, toLat, dh,
+                    //    out int[,] result_XPDERL, out double utmLeftLon2, out double utmBottomLat2, out double perX2, out double perY2);
+                    //var XPDERLTime = DateTime.Now - date;
+                    //date = DateTime.Now;
+
+
+                    demAnalysisService.Analysis.DoAnalysisByRpLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_RefF, out double utmLeftLon5, out double utmBottomLat5, out double perX5, out double perY5);
+                    var RefFTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+
+                    demAnalysisService.Analysis.DoAnalysisByXDrawLonLat(lon, lat, toLon, toLat, dh,
+                        out int[,] result_XDraw, out double utmLeftLon3, out double utmBottomLat3, out double perX3, out double perY3);
+                    var XDrawTime = DateTime.Now - date;
+                    date = DateTime.Now;
+
+
+                    int lonCount = result_PDERL.GetLength(0);
+                    int latCount = result_PDERL.GetLength(1);
+                    int AllPointCount = lonCount * latCount;
+
+                    //获取通视率
+                    double VisibleRate = GetVisibleRate(result_PDERL);
+
+                    //GetErrRate(result_XPDERL, result_PDERL, lonCount, latCount, AllPointCount, out int XPDERLErrPointCount, out double XPDERLErrRate);
+                    GetErrRate(result_XDraw, result_PDERL, lonCount, latCount, AllPointCount, out int XDrawErrPointCount, out double XDrawErrRate);
+                    GetErrRate(result_RefF, result_PDERL, lonCount, latCount, AllPointCount, out int RefFErrPointCount, out double RefFErrRate);
+
+                    items.Add(new
+                    {
+                        Lontitude = lon,
+                        Lattitude = lat,
+                        R = lonCount,//半径
+                        SeeHeight = dh,//视点高度
+                        AllPointCount,//共计算了多少点量
+                        VisibleRate,//计算区域的通视率
+                        MaxReferLength = demAnalysisService.Analysis.pde_max_refer_length,
+                        AllReferLength = demAnalysisService.Analysis.pde_all_refer_length,//交叉点计算数量
+
+                        PDERLTime = PDERLTime.TotalSeconds,//计算时间
+                        PDERLPerPointTime = PDERLTime.TotalSeconds / AllPointCount * 1000000000,//单点耗时（单位纳秒）
+
+                        //XPDERLTime = XPDERLTime.TotalSeconds,//计算时间
+                        //XPDERLPerPointTime = XPDERLTime.TotalSeconds / AllPointCount * 1000000000,//单点耗时（单位纳秒）
+                        //XPDERLErrPointCount,
+                        //XPDERLErrRate,
+
+                        RefFTime = RefFTime.TotalSeconds,//计算时间
+                        RefFPerPointTime = RefFTime.TotalSeconds / AllPointCount * 1000000000,//单点耗时（单位纳秒）
+                        RefFErrPointCount,
+                        RefFErrRate,
+
+                        XDrawTime = XDrawTime.TotalSeconds,//计算时间
+                        XDrawPerPointTime = XDrawTime.TotalSeconds / AllPointCount * 1000000000,//单点耗时（单位纳秒）
+                        XDrawErrPointCount,
+                        XDrawErrRate,
+                    });
+
+                    sw.WriteLine(demAnalysisService.FileName + "," + lon + "," + lat + "," + lonCount + "," + AllPointCount + "," + dh + "," + VisibleRate + ","
+                        + demAnalysisService.Analysis.pde_max_refer_length + "," + demAnalysisService.Analysis.pde_all_refer_length + "," +
+                        +PDERLTime.TotalSeconds + ",-," + RefFTime.TotalSeconds + "," + XDrawTime.TotalSeconds
+                        + ",-," + RefFErrPointCount + "," + XDrawErrPointCount
+                        + ",-," + RefFErrRate + "," + XDrawErrRate);
+
+                    count++;
+
+                }
+                sw.Flush();
+                fs.Flush();
+            }
+
+            return items;
+        }
         #endregion
 
         #region 各种算法与R3的单独精度比较
@@ -390,7 +1023,7 @@ namespace PderlTest.Controllers
         }
 
         #endregion
-        
+
         #region 实时测试，这几个方法不会记录日志，主要是给前端实时测试准备的
         /// <summary>
         /// 通过在当前DEM文件的最大范围进行计算，来比较PDERL、XPDERL、XDraw、参考面算法的速度
@@ -667,522 +1300,6 @@ namespace PderlTest.Controllers
         }
         #endregion
 
-        #region 记录性测试，这几个方法会记录日志，主要是给自动测试准备的，可以组合调用
-        /// <summary>
-        /// 重复各高度各算法精度速度随机测试（精度参照R3）
-        /// </summary>
-        /// <param name="count">重复次数</param>
-        /// <returns></returns>
-        [HttpGet("analysis_pderl_r/{minlon}/{maxlat}/{maxLon}/{minLat}/{dh}/{count}")]
-        public ActionResult<object> DoAnalysisAllPrecRe(double minLon, double maxLat,
-            double maxLon, double minLat, double dh, int count)
-        {
-            Random radom = new Random();
-            List<object> items = new List<object>();
-            if (maxLat - minLat < 0.027 || maxLon - minLon < 0.027)
-                throw new Exception("运算范围太小");
-            //using (var fs = new FileStream("../../RunningLog/各算法与R3算法精度比较_"
-            //    + demAnalysisService.FileName + "_" + dh.ToString() + "_[" + minLon + "：" + maxLon + "]_[" + minLat + "：" + maxLat + "]_" + DateTime.Now.ToLongDateString() + DateTime.Now.ToLongTimeString().Replace(":", "：") + ".csv", FileMode.Create, FileAccess.ReadWrite))
-            if (!System.IO.File.Exists("../../RunningLog/各高度各算法精度速度随机测试.csv"))
-            {
-                if (!Directory.Exists("../../RunningLog"))
-                    Directory.CreateDirectory("../../RunningLog");
-                using (var fs = new FileStream("../../RunningLog/各高度各算法精度速度随机测试.csv", FileMode.Create, FileAccess.ReadWrite))
-                using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
-                {
-                    sw.WriteLine("数据文件,位置,计算点量,通视率,视点高度," +
-                    "最长参考线长度,有效参考线总长度,交叉点总数," +
-                    "R3耗时,PDERL耗时,X-PDERL耗时,XDraw耗时,RefF耗时," +
-                    "PDERL第一类错误,PDERL第二类错误,PDERL总错误," +
-                    "PDERL第一类错误率,PDERL第二类错误率,PDERL整体错误率," +
-                    "XPDERL第一类错误,XPDERL第二类错误,XPDERL总错误," +
-                    "XPDERL第一类错误率,XPDERL第二类错误率,XPDERL整体错误率," +
-                    "XDraw第一类错误,XDraw第二类错误,XDraw总错误," +
-                    "XDraw第一类错误率,XDraw第二类错误率,XDraw整体错误率," +
-                    "RefF第一类错误,RefF第二类错误,RefF总错误," +
-                    "RefF第一类错误率,RefF第二类错误率,RefF整体错误率,"
-                    );
-                    sw.Flush();
-                }
-            }
-            using (var fs = new FileStream("../../RunningLog/各高度各算法精度速度随机测试.csv", FileMode.Append, FileAccess.Write))
-            using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
-            {
-                for (int k = 0; k < count; k++)
-                {
-                    var lon1 = radom.NextDouble() * (maxLon - minLon) + minLon;
-                    var lon2 = radom.NextDouble() * (maxLon - minLon) + minLon;
-                    var rlon = Math.Abs(lon1 - lon2) / 2;
-                    if (rlon < 0.0027)
-                    {
-                        k--;
-                        continue;
-                    }
-                    var lon = (Math.Min(lon1, lon2) + Math.Max(lon1, lon2)) / 2;
-
-                    var lat1 = radom.NextDouble() * (maxLat - minLat) + minLat;
-                    var lat2 = radom.NextDouble() * (maxLat - minLat) + minLat;
-                    var rlat = Math.Abs(lat1 - lat2) / 2;
-                    if (rlat < 0.0027)
-                    {
-                        k--;
-                        continue;
-                    }
-                    var lat = (Math.Min(lat1, lat2) + Math.Max(lat1, lat2)) / 2;
-
-                    double toLon = 0, toLat = 0;
-
-                    if (rlat > rlon)
-                    {
-                        toLon = lon + rlon;
-                        toLat = lat;
-                    }
-                    else
-                    {
-                        toLon = lon;
-                        toLat = lat + rlat;
-                    }
-
-                    var date = DateTime.Now;
-
-                    //PDERL
-                    demAnalysisService.Analysis.DoAnalysisByPedrlLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_PDERL, out double demMinX, out double demMinY, out double perX, out double perY);
-                    var PDERLTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    //PDERL参照（主要求交叉点数量等信息，为评价地形做辅助工作）
-                    demAnalysisService.Analysis.DoAnalysisByPderlLonLat_Refer(lon, lat, toLon, toLat, dh,
-                        out int[,] result1, out demMinX, out demMinY, out perX, out perY);
-                    var TimeRefer = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    ////X-PDERL
-                    //demAnalysisService.Analysis.DoAnalysisByXPderlLonLat(lon, lat, toLon, toLat, dh,
-                    //    out int[,] result_XPDERL, out demMinX, out demMinY, out perX, out perY);
-                    //var TimeXPDERL = DateTime.Now - date;
-                    //date = DateTime.Now;
-
-                    //XDraw
-                    demAnalysisService.Analysis.DoAnalysisByXDrawLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_XDraw, out demMinX, out demMinY, out perX, out perY);
-                    var TimeXDraw = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    //Rff
-                    demAnalysisService.Analysis.DoAnalysisByRpLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_RefF, out demMinX, out demMinY, out perX, out perY);
-                    var TimeRefF = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    //R3算法
-                    demAnalysisService.Analysis.DoAnalysisByR3LonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_R3, out demMinX, out demMinY, out perX, out perY);
-                    var R3Time = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    int lonCount = result_R3.GetLength(0);
-                    int latCount = result_R3.GetLength(1);
-                    int AllPointCount = lonCount * latCount;
-
-                    //获取通视率
-                    double VisibleRate = GetVisibleRate(result_R3);
-
-                    //错点率
-                    GetErrRate(result_PDERL, result_R3, lonCount, latCount, AllPointCount,
-                        out int PDERLVisibleErrCount, out int PDERLUnVisibleErrCount, out int PDERLAllErrCount, out double PDERLVisibleErrRate, out double PDERLUnVisibleErrRate, out double PDERLErrRate);
-
-                    //GetErrRate(result_XPDERL, result_R3, lonCount, latCount, AllPointCount,
-                    //    out int XPDERLVisibleErrCount, out int XPDERLUnVisibleErrCount, out int XPDERLAllErrCount, out double XPDERLVisibleErrRate, out double XPDERLUnVisibleErrRate, out double XPDERLErrRate);
-
-                    GetErrRate(result_RefF, result_R3, lonCount, latCount, AllPointCount,
-                        out int RefFVisibleErrCount, out int RefFUnVisibleErrCount, out int RefFAllErrCount, out double RefFVisibleErrRate, out double RefFUnVisibleErrRate, out double RefFErrRate);
-                    GetErrRate(result_XDraw, result_R3, lonCount, latCount, AllPointCount,
-                        out int XDrawVisibleErrCount, out int XDrawUnVisibleErrCount, out int XDrawAllErrCount, out double XDrawVisibleErrRate, out double XDrawUnVisibleErrRate, out double XDrawErrRate);
-
-                    string Location = "E" + lon.ToString() + "°，N" + lat.ToString() + "°";
-                    double PerPointTime = PDERLTime.TotalSeconds / AllPointCount * 1000000000;
-
-                    int MaxReferLength = demAnalysisService.Analysis.pde_max_refer_length;
-                    int AllReferLength = demAnalysisService.Analysis.pde_all_refer_length;
-                    int CrossPointCount = demAnalysisService.Analysis.pde_cross_point_count;
-                    items.Add(new
-                    {
-                        Location,//坐标
-                        R3Time = R3Time.TotalSeconds,//R3计算时间
-                        Time = PDERLTime.TotalSeconds,//计算时间
-                        PerPointTime,//单点耗时（单位纳秒）
-                        AllPointCount,//共计算了多少点量
-                        VisibleRate,//计算区域的通视率
-                        PDERLVisibleErrCount,//可见点判错数量
-                        PDERLUnVisibleErrCount,//不可见点判错数量
-                        PDERLAllErrCount,//总错误点数
-                        PDERLVisibleErrRate,//可见点错误率
-                        PDERLUnVisibleErrRate,//不可见点错误率
-                        PDERLErrRate,//整体错误率
-                        MaxReferLength,//交叉点数量
-                        AllReferLength,//交叉点计算数量
-                        CrossPointCount //交叉点计算失败数量
-                    });
-
-                    sw.WriteLine(demAnalysisService.FileName + "," + Location + "," + AllPointCount + "," + VisibleRate + "," + dh + ","
-                        + MaxReferLength + "," + AllReferLength + "," + CrossPointCount + ","
-                        + R3Time.TotalSeconds + "," + PDERLTime.TotalSeconds + ",-," + TimeXDraw.TotalSeconds + "," + TimeRefF.TotalSeconds + ","
-                        + PDERLVisibleErrCount + "," + PDERLUnVisibleErrCount + "," + PDERLAllErrCount + ","
-                        + PDERLVisibleErrRate + "," + PDERLUnVisibleErrRate + "," + PDERLErrRate +
-                        ",-,-,-,-,-,-,"
-                        + XDrawVisibleErrCount + "," + XDrawUnVisibleErrCount + "," + XDrawAllErrCount + ","
-                        + XDrawVisibleErrRate + "," + XDrawUnVisibleErrRate + "," + XDrawErrRate + ","
-                        + RefFVisibleErrCount + "," + RefFUnVisibleErrCount + "," + RefFAllErrCount + ","
-                        + RefFVisibleErrRate + "," + RefFUnVisibleErrRate + "," + RefFErrRate + ","
-                        );
-                }
-
-
-            }
-            return items;
-        }
-
-
-        /// <summary>
-        /// 各类算法时间比较计算随机实验（精度参照PDERL）
-        /// </summary>
-        /// <param name="r"></param>
-        /// <param name="dh"></param>
-        /// <param name="maxcount"></param>
-        /// <returns></returns>
-        [HttpGet("analysis_time_fixed_r/{r}/{dh}/{maxcount}")]
-        public object DoAnalysisTimeRodomRepeateAll(double r, double dh, int maxcount)
-        {
-            Random radom = new Random();
-            List<object> items = new List<object>();
-
-            double dlon = demAnalysisService.DemData.DX;
-            double dlat = demAnalysisService.DemData.DY;
-            var startLon = demAnalysisService.DemData.StartX + r + dlon + 0.00181;//避免正好在格网上
-            var startLat = demAnalysisService.DemData.StartY + r + dlat + 0.00181;
-            var maxLon = demAnalysisService.DemData.MaxLon - r - dlon - 0.00181;
-            var maxLat = demAnalysisService.DemData.MaxY - r - dlat - 0.00181;
-
-            if (!Directory.Exists("../../RunningLog"))
-                Directory.CreateDirectory("../../RunningLog");
-            using (var fs = new FileStream("../../RunningLog/各类算法时间比较计算_"
-                + demAnalysisService.FileName + "_" + r.ToString() + "_" + dh.ToString() + "_" + DateTime.Now.ToLongDateString() + DateTime.Now.ToLongTimeString().Replace(":", "：") + ".csv", FileMode.Create, FileAccess.ReadWrite))
-            using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
-            {
-
-                sw.WriteLine("数据文件,经度,纬度,半径,总点量,视点高度,通视率,参考线交点量,参考线求交计算量,PDERL算法耗时(秒),XPDERL算法耗时(秒),参考面算法耗时(秒),XDraw算法耗时(秒),XPDERL算法错点量,参考面算法错点量,XDraw算法错点量,XPDERL算法错点率,参考面算法错点率,XDraw算法错点率");
-                sw.Flush();
-
-                double count = 0;
-                while (count < maxcount)
-                {
-                    double lon = startLon + radom.NextDouble() * (maxLon - startLon);
-                    double lat = startLat + radom.NextDouble() * (maxLat - startLat);
-
-                    var toLon = lon + r;
-                    var toLat = lat;
-
-                    var date = DateTime.Now;
-
-                    //PDERL算法参照
-                    demAnalysisService.Analysis.DoAnalysisByPderlLonLat_Refer(lon, lat, toLon, toLat, dh,
-                        out int[,] result_PDERL_refer, out double utmLeftLon_refer, out double utmBottomLat_refer, out double perX_refer, out double perY_refer);
-                    var PDERLTime_refer = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    //PDERL算法
-                    demAnalysisService.Analysis.DoAnalysisByPedrlLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_PDERL, out double demMinX, out double demMinY, out double perX, out double perY);
-                    var PDERLTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    //demAnalysisService.Analysis.DoAnalysisByXPderlLonLat(lon, lat, toLon, toLat, dh,
-                    //    out int[,] result_XPDERL, out double utmLeftLon2, out double utmBottomLat2, out double perX2, out double perY2);
-                    //var XPDERLTime = DateTime.Now - date;
-                    //date = DateTime.Now;
-
-
-                    demAnalysisService.Analysis.DoAnalysisByRpLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_RefF, out double utmLeftLon5, out double utmBottomLat5, out double perX5, out double perY5);
-                    var RefFTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-
-                    demAnalysisService.Analysis.DoAnalysisByXDrawLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_XDraw, out double utmLeftLon3, out double utmBottomLat3, out double perX3, out double perY3);
-                    var XDrawTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-
-                    int lonCount = result_PDERL.GetLength(0);
-                    int latCount = result_PDERL.GetLength(1);
-                    int AllPointCount = lonCount * latCount;
-
-                    //获取通视率
-                    double VisibleRate = GetVisibleRate(result_PDERL);
-
-                    //GetErrRate(result_XPDERL, result_PDERL, lonCount, latCount, AllPointCount, out int XPDERLErrPointCount, out double XPDERLErrRate);
-                    GetErrRate(result_XDraw, result_PDERL, lonCount, latCount, AllPointCount, out int XDrawErrPointCount, out double XDrawErrRate);
-                    GetErrRate(result_RefF, result_PDERL, lonCount, latCount, AllPointCount, out int RefFErrPointCount, out double RefFErrRate);
-
-                    items.Add(new
-                    {
-                        Lontitude = lon,
-                        Lattitude = lat,
-                        R = lonCount,//半径
-                        SeeHeight = dh,//视点高度
-                        AllPointCount,//共计算了多少点量
-                        VisibleRate,//计算区域的通视率
-                        MaxReferLength = demAnalysisService.Analysis.pde_max_refer_length,
-                        AllReferLength = demAnalysisService.Analysis.pde_all_refer_length,//交叉点计算数量
-
-                        PDERLTime = PDERLTime.TotalSeconds,//计算时间
-                        PDERLPerPointTime = PDERLTime.TotalSeconds / AllPointCount * 1000000000,//单点耗时（单位纳秒）
-
-                        //XPDERLTime = XPDERLTime.TotalSeconds,//计算时间
-                        //XPDERLPerPointTime = XPDERLTime.TotalSeconds / AllPointCount * 1000000000,//单点耗时（单位纳秒）
-                        //XPDERLErrPointCount,
-                        //XPDERLErrRate,
-
-                        RefFTime = RefFTime.TotalSeconds,//计算时间
-                        RefFPerPointTime = RefFTime.TotalSeconds / AllPointCount * 1000000000,//单点耗时（单位纳秒）
-                        RefFErrPointCount,
-                        RefFErrRate,
-
-                        XDrawTime = XDrawTime.TotalSeconds,//计算时间
-                        XDrawPerPointTime = XDrawTime.TotalSeconds / AllPointCount * 1000000000,//单点耗时（单位纳秒）
-                        XDrawErrPointCount,
-                        XDrawErrRate,
-                    });
-
-                    sw.WriteLine(demAnalysisService.FileName + "," + lon + "," + lat + "," + lonCount + "," + AllPointCount + "," + dh + "," + VisibleRate + ","
-                        + demAnalysisService.Analysis.pde_max_refer_length + "," + demAnalysisService.Analysis.pde_all_refer_length + "," +
-                        +PDERLTime.TotalSeconds + ",-," + RefFTime.TotalSeconds + "," + XDrawTime.TotalSeconds
-                        + ",-," + RefFErrPointCount + "," + XDrawErrPointCount
-                        + ",-," + RefFErrRate + "," + XDrawErrRate);
-
-                    count++;
-
-                }
-                sw.Flush();
-                fs.Flush();
-            }
-
-            return items;
-        }
-
-        /// <summary>
-        /// 各种算法比较速度（不包括R3算法），指定半径，位置随机
-        /// </summary>
-        /// <param name="DoAnalysisLL"></param>
-        /// <param name="lon"></param>
-        /// <param name="lat"></param>
-        /// <param name="r"></param>
-        /// <param name="dh"></param>
-        /// <param name="max">最多计算多少个点，大于0有效</param>
-        /// <returns></returns>
-        [HttpGet("analysis_all_fixed_withoutr3/{r}/{dh}/{max}")]
-        public void DoAnalysisRodomRepeateWithoutR3(double r, double dh, int max)
-        {
-            if (max < 1) return;
-            Random radom = new Random();
-
-            double dlon = demAnalysisService.DemData.DX;
-            double dlat = demAnalysisService.DemData.DY;
-            var startLon = demAnalysisService.DemData.StartX + r + dlon + 0.00181;//避免正好在格网上
-            var startLat = demAnalysisService.DemData.StartY + r + dlat + 0.00181;
-            var maxLon = demAnalysisService.DemData.MaxLon - r - dlon - 0.00181;
-            var maxLat = demAnalysisService.DemData.MaxY - r - dlat - 0.00181;
-
-            if (!System.IO.File.Exists("../../RunningLog/固定半径速度测试.csv"))
-            {
-                if (!Directory.Exists("../../RunningLog"))
-                    Directory.CreateDirectory("../../RunningLog");
-                using (var fs = new FileStream("../../RunningLog/固定半径速度测试.csv", FileMode.Create, FileAccess.ReadWrite))
-                using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
-                {
-                    sw.WriteLine("数据文件,经度,纬度,半径网格数,总点量,视点高度,通视率,求交点次数,参考线最大节点数,参考线总节点数,PDERL算法耗时(秒),XPDERL算法耗时(秒),参考面算法耗时(秒),XDraw算法耗时(秒)");
-                    sw.Flush();
-                }
-            }
-            using (var fs = new FileStream("../../RunningLog/固定半径速度测试.csv", FileMode.Append, FileAccess.Write))
-            using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
-            {
-                double count = 0;
-
-                while (true)
-                {
-                    double lon = startLon + radom.NextDouble() * (maxLon - startLon);
-                    double lat = startLat + radom.NextDouble() * (maxLat - startLat);
-
-                    var toLon = lon + r;
-                    var toLat = lat;
-
-                    var date = DateTime.Now;
-                    //PDERL算法
-                    demAnalysisService.Analysis.DoAnalysisByPedrlLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_PDERL, out double demMinX, out double demMinY, out double perX, out double perY);
-                    var PDERLTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    //PDERL算法
-                    demAnalysisService.Analysis.DoAnalysisByPderlLonLat_Refer(lon, lat, toLon, toLat, dh,
-                        out int[,] result_PDERL_Refer, out double utmLeftLon_Refer, out double utmBottomLat_Refer, out double perX_Refer, out double perY_Refer);
-                    var PDERLTime_Refer = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    //demAnalysisService.Analysis.DoAnalysisByXPderlLonLat(lon, lat, toLon, toLat, dh,
-                    //    out int[,] result_XPDERL, out double utmLeftLon2, out double utmBottomLat2, out double perX2, out double perY2);
-                    //var XPDERLTime = DateTime.Now - date;
-                    //date = DateTime.Now;
-
-
-                    demAnalysisService.Analysis.DoAnalysisByRpLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_RefF, out double utmLeftLon5, out double utmBottomLat5, out double perX5, out double perY5);
-                    var RefFTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-
-                    demAnalysisService.Analysis.DoAnalysisByXDrawLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_XDraw, out double utmLeftLon3, out double utmBottomLat3, out double perX3, out double perY3);
-                    var XDrawTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-
-                    int lonCount = result_PDERL.GetLength(0);
-                    int latCount = result_PDERL.GetLength(1);
-                    int AllPointCount = lonCount * latCount;
-                    //获取通视率
-                    double VisibleRate = GetVisibleRate(result_PDERL);
-
-                    sw.WriteLine(demAnalysisService.FileName + "," + lon + "," + lat + "," + lonCount / 2 + "," + AllPointCount + "," + dh + "," + VisibleRate + ","
-                    + demAnalysisService.Analysis.pde_cross_point_count + "," + demAnalysisService.Analysis.pde_max_refer_length + "," + demAnalysisService.Analysis.pde_all_refer_length + "," +
-                    +PDERLTime.TotalSeconds + ",-," + RefFTime.TotalSeconds + "," + XDrawTime.TotalSeconds);
-                    sw.Flush();
-
-                    count++;
-                    if (count > max)
-                        return;
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// 比较各种算法的邻域错误数（与R3算法相比），指定半径，位置随机
-        /// </summary>
-        /// <param name="DoAnalysisLL"></param>
-        /// <param name="lon"></param>
-        /// <param name="lat"></param>
-        /// <param name="r"></param>
-        /// <param name="dh"></param>
-        /// <param name="max">最多计算多少个点，大于0有效</param>
-        /// <returns></returns>
-        [HttpGet("analysis_all_fixed_neighbor_err/{r}/{dh}/{max}")]
-        public void DoAnalysisGetNeighborErrWithoutR3(double r, double dh, int max, string fileNameExtend = "")
-        {
-            if (max < 1) return;
-            Random radom = new Random();
-
-            double dlon = demAnalysisService.DemData.DX;
-            double dlat = demAnalysisService.DemData.DY;
-            var startLon = demAnalysisService.DemData.StartX + r + dlon + 0.00181;//避免正好在格网上
-            var startLat = demAnalysisService.DemData.StartY + r + dlat + 0.00181;
-            var maxLon = demAnalysisService.DemData.MaxLon - r - dlon - 0.00181;
-            var maxLat = demAnalysisService.DemData.MaxY - r - dlat - 0.00181;
-
-            if (!Directory.Exists("../../RunningLog"))
-                Directory.CreateDirectory("../../RunningLog");
-            string fileName = "../../RunningLog/测试各邻域错误数" + fileNameExtend + ".csv";
-
-            if (!System.IO.File.Exists(fileName))
-            {
-                using (var fs = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite))
-                using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
-                {
-                    sw.WriteLine("数据文件,经度,纬度,半径网格数,总点量,视点高度,通视率,PDERL错误率,XPDERL错误率,XDraw错误率,参考面错误率," +
-                        "1邻域（PDERL）,2邻域（PDERL）,3邻域（PDERL）,4邻域（PDERL）,5邻域（PDERL）,6邻域（PDERL）,7邻域（PDERL）,8邻域（PDERL）,9邻域（PDERL）,10邻域（PDERL）," +
-                        "1邻域（XPDERL）,2邻域（XPDERL）,3邻域（XPDERL）,4邻域（XPDERL）,5邻域（XPDERL）,6邻域（XPDERL）,7邻域（XPDERL）,8邻域（XPDERL）,9邻域（XPDERL）,10邻域（XPDERL）," +
-                        "1邻域（XDraw）,2邻域（XDraw）,3邻域（XDraw）,4邻域（XDraw）,5邻域（XDraw）,6邻域（XDraw）,7邻域（XDraw）,8邻域（XDraw）,9邻域（XDraw）,10邻域（XDraw）," +
-                        "1邻域（RP）,2邻域（RP）,3邻域（RP）,4邻域（RP）,5邻域（RP）,6邻域（RP）,7邻域（RP）,8邻域（RP）,9邻域（RP）,10邻域（RP）");
-                    sw.Flush();
-                }
-            }
-            using (var fs = new FileStream(fileName, FileMode.Append, FileAccess.Write))
-            using (var sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
-            {
-                double count = 0;
-
-                while (true)
-                {
-                    double lon = startLon + radom.NextDouble() * (maxLon - startLon);
-                    double lat = startLat + radom.NextDouble() * (maxLat - startLat);
-
-                    var toLon = lon + r;
-                    var toLat = lat;
-
-                    var date = DateTime.Now;
-
-                    //R3
-                    demAnalysisService.Analysis.DoAnalysisByR3LonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_R3, out double utmLeftLon_Refer, out double utmBottomLat_Refer, out double perX_Refer, out double perY_Refer);
-                    var PDERLTime_R3 = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    //PDERL算法
-                    demAnalysisService.Analysis.DoAnalysisByPedrlLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_PDERL, out double demMinX, out double demMinY, out double perX, out double perY);
-                    var PDERLTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-                    //demAnalysisService.Analysis.DoAnalysisByXPderlLonLat(lon, lat, toLon, toLat, dh,
-                    //    out int[,] result_XPDERL, out double utmLeftLon2, out double utmBottomLat2, out double perX2, out double perY2);
-                    //var XPDERLTime = DateTime.Now - date;
-                    //date = DateTime.Now;
-
-                    demAnalysisService.Analysis.DoAnalysisByRpLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_RefF, out double utmLeftLon5, out double utmBottomLat5, out double perX5, out double perY5);
-                    var RefFTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-
-                    demAnalysisService.Analysis.DoAnalysisByXDrawLonLat(lon, lat, toLon, toLat, dh,
-                        out int[,] result_XDraw, out double utmLeftLon3, out double utmBottomLat3, out double perX3, out double perY3);
-                    var XDrawTime = DateTime.Now - date;
-                    date = DateTime.Now;
-
-
-                    int lonCount = result_PDERL.GetLength(0);
-                    int latCount = result_PDERL.GetLength(1);
-                    int AllPointCount = lonCount * latCount;
-                    //获取通视率
-                    double VisibleRate = GetVisibleRate(result_PDERL);
-
-                    GetNeighborErr(result_PDERL, result_R3, 10, 0.9, out Dictionary<int, int> neighborErrCount_PDERL, out double errRate_PDERL, out double visibleErrRate_PDERL, out double unvisibleErrRate_PDERL);
-                    //GetNeighborErr(result_XPDERL, result_R3, 10, 0.9, out Dictionary<int, int> neighborErrCount_XPDERL, out double errRate_XPDERL, out double visibleErrRate_XPDERL, out double unvisibleErrRate_XPDERL);
-                    GetNeighborErr(result_XDraw, result_R3, 10, 0.9, out Dictionary<int, int> neighborErrCount_XDraw, out double errRate_XDraw, out double visibleErrRate_XDraw, out double unvisibleErrRate_XDraw);
-                    GetNeighborErr(result_RefF, result_R3, 10, 0.9, out Dictionary<int, int> neighborErrCount_RP, out double errRate_RP, out double visibleErrRate_RP, out double unvisibleErrRate_RP);
-
-                    sw.WriteLine(demAnalysisService.FileName + "," + lon + "," + lat + "," + lonCount / 2 + "," + AllPointCount + "," + dh + "," + VisibleRate + "," + errRate_PDERL + ",-," + errRate_XDraw + "," + errRate_RP + ","
-                    + neighborErrCount_PDERL[1] + "," + neighborErrCount_PDERL[2] + "," + neighborErrCount_PDERL[3] + "," + neighborErrCount_PDERL[4] + "," + neighborErrCount_PDERL[5] + ","
-                    + neighborErrCount_PDERL[6] + "," + neighborErrCount_PDERL[7] + "," + neighborErrCount_PDERL[8] + "," + neighborErrCount_PDERL[9] + "," + neighborErrCount_PDERL[10] + ","
-                    +"-,-,-,-,-,-,-,-,-,-,"
-                    + neighborErrCount_XDraw[1] + "," + neighborErrCount_XDraw[2] + "," + neighborErrCount_XDraw[3] + "," + neighborErrCount_XDraw[4] + "," + neighborErrCount_XDraw[5] + ","
-                    + neighborErrCount_XDraw[6] + "," + neighborErrCount_XDraw[7] + "," + neighborErrCount_XDraw[8] + "," + neighborErrCount_XDraw[9] + "," + neighborErrCount_XDraw[10] + ","
-                    + neighborErrCount_RP[1] + "," + neighborErrCount_RP[2] + "," + neighborErrCount_RP[3] + "," + neighborErrCount_RP[4] + "," + neighborErrCount_RP[5] + ","
-                    + neighborErrCount_RP[6] + "," + neighborErrCount_RP[7] + "," + neighborErrCount_RP[8] + "," + neighborErrCount_RP[9] + "," + neighborErrCount_RP[10]
-                    );
-                    sw.Flush();
-
-                    count++;
-                    if (count > max)
-                        return;
-                }
-            }
-        }
-        #endregion
-        
         #region 工具方法
 
         /// <summary>
