@@ -11,7 +11,7 @@
 2. 还原工程；
 3. 启动运行；
 4. 决定好您要在哪块DEM文件上进行测试，比如"ASTGTM2_N41E119_dem.tif"文件，请在浏览器地址栏输入".../api/dem/setdem/ASTGTM2_N41E119_dem"并回车；
-5. 在浏览器中输入RESTFUL风格的API资源地址访问服务，比如说".../api/dem/analysis/119.5/41.5/119.55/42.55/2"，然后回车，您将得到PDERL以N119.5°，E41.5°，距离地面5米为观测点，至边缘点N119.55°，E41.55°的方形区域分析结果。值得注意的是，您输入的经纬度范围不可超过上一步中DEM文件的覆盖范围。
+5. 在浏览器中输入RESTFUL风格的API资源地址访问服务，比如说".../api/dem/analysis/119.5/41.5/119.55/42.55/2"，然后回车，您将得到PDERL以N119.5°，E41.5°，距离地面2米为观测点，至边缘点N119.55°，E41.55°的方形区域分析结果。值得注意的是，您输入的经纬度范围不可超过上一步中DEM文件的覆盖范围。
 6. 更多的测试API请查看["./Code/Pderl/Controllers/DemController.cs "](https://github.com/blct-w/Pedrl-Algorithm/blob/master/Code/Pderl/Controllers/DemController.cs)文件的路由定义部分。   
 
 # Pedrl-Algorithm   
@@ -27,5 +27,5 @@ Email:blct_w@foxmail.com
 2. Restore this project;
 3. Run;
 4. Decide which DEM file do you want to test on, for example "ASTGTM2_N41E119_dem.tif", then input ".../api/dem/setdem/ASTGTM2_N41E119_dem" in your browser and press the enter key;
-5. To test the Pderl, input the restfull api url in your browser, for example ".../api/dem/analysis/119.5/41.5/119.55/42.55/2" then press enter, you will get the results of PDERL square area analysis with 119.5° N, 41.5° E, 5m above the ground as the observation point, N119.55°,E41.55° to the edge point. Note that the latitude and longitude range of the test must not exceed the coverage of the DEM file you set up in the previous step.
+5. To test the Pderl, input the restfull api url in your browser, for example ".../api/dem/analysis/119.5/41.5/119.55/42.55/2" then press enter, you will get the results of PDERL square area analysis with 119.5° N, 41.5° E, 2m above the ground as the observation point, N119.55°,E41.55° to the edge point. Note that the latitude and longitude range of the test must not exceed the coverage of the DEM file you set up in the previous step.
 6. For more test api, please see the routing definition part of the function in ["./Code/Pderl/Controllers/DemController.cs "](https://github.com/blct-w/Pedrl-Algorithm/blob/master/Code/Pderl/Controllers/DemController.cs);
