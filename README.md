@@ -7,7 +7,7 @@
 如有需要可以联系我(blct_w@foxmail.com)。
 
 # 按如下步骤进行代码测试:
-1. 拷贝proj.dll到您电脑的执行文件夹，Windows系统为“C:\Windows\System32”；
+1. 拷贝proj.dll到您电脑的执行文件夹，Windows系统为“C:\Windows\System32”，您也可以使用自己编译的[OSGeo/PROJ](https://github.com/OSGeo/PROJ)；
 2. 还原工程；
 3. 启动运行；
 4. 决定好您要在哪块DEM文件上进行测试，比如"ASTGTM2_N41E119_dem.tif"文件，请在浏览器地址栏输入".../api/dem/setdem/ASTGTM2_N41E119_dem"并回车；
@@ -23,7 +23,7 @@ The DEM used in this project is not continuous. All dems available are in folder
 Email:blct_w@foxmail.com      
  
 # To test following these steps :
-1. Copy proj.dll to your computer's execution folder, such as the "C:\Windows\System32" folder for Windows;
+1. Copy proj.dll to your computer's execution folder, such as the "C:\Windows\System32" folder for Windows. You also can use your own compiled [OSGeo/PROJ](https://github.com/OSGeo/PROJ);
 2. Restore this project;
 3. Run;
 4. Decide which DEM file do you want to test on, for example "ASTGTM2_N41E119_dem.tif", then input ".../api/dem/setdem/ASTGTM2_N41E119_dem" in your browser and press the enter key;
