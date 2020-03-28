@@ -12,9 +12,8 @@
 3. 启动运行；
 4. 决定好您要在哪块DEM文件上进行测试，比如"ASTGTM2_N41E119_dem.tif"文件，请在浏览器地址栏输入".../api/dem/setdem/ASTGTM2_N41E119_dem"并回车；
 5. 在浏览器中输入RESTFUL风格的API资源地址访问服务，比如说".../api/dem/analysis/119.5/41.5/119.55/42.55/2"，然后回车，您将得到PDERL的分析结果。值得注意的是，您输入的经纬度范围不可超过上一步中DEM文件的覆盖范围。
-6. 更多的测试API请查看["./Code/Pderl/Controllers/DemController.cs "](https://github.com/blct-w/Pedrl-Algorithm/blob/master/Code/Pderl/Controllers/DemController.cs)文件的路由定义部分。
-Email(blct_w@foxmail.com)
-
+6. 更多的测试API请查看["./Code/Pderl/Controllers/DemController.cs "](https://github.com/blct-w/Pedrl-Algorithm/blob/master/Code/Pderl/Controllers/DemController.cs)文件的路由定义部分。   
+Email:blct_w@foxmail.com    
 
 # Pedrl-Algorithm   
 This project is code in vs2017 with C# under .net core 2.1.  
