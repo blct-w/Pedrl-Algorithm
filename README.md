@@ -27,5 +27,5 @@ Email:blct_w@foxmail.com
 2. Restore this project;
 3. Run;
 4. Decide which DEM file do you want to test on, for example "ASTGTM2_N41E119_dem.tif", then input ".../api/dem/setdem/ASTGTM2_N41E119_dem" in your browser and press the enter key;
-5. To test the Pderl, input the restfull api url in your browser, for example ".../api/dem/analysis/119.5/41.5/119.55/42.55/2" then press enter, you will get the results of PDERL square area analysis with 119.5° N, 41.5° E, 2m above the ground as the observation point, N119.55°,E41.55° to the edge point. Note that the latitude and longitude range of the test must not exceed the coverage of the DEM file you set up in the previous step.
+5. To test the Pderl, input the restfull api url in your browser, for example ".../api/dem/analysis/119.5/41.5/119.55/42.55/2" then press enter. You will get the results of PDERL square area analysis with 119.5° N, 41.5° E, 2m above the ground as the observation point, N119.55°,E41.55° to the edge point. Note that the latitude and longitude range of the test must not exceed the coverage of the DEM file you set up in the previous step.
 6. For more test api, please see the routing definition part of the function in ["./Code/Pderl/Controllers/DemController.cs "](https://github.com/blct-w/Pedrl-Algorithm/blob/master/Code/Pderl/Controllers/DemController.cs);
