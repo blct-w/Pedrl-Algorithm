@@ -26,20 +26,20 @@ Follow these steps to restore the project. If you don't plan to read the code, y
 To help those unfamiliar with C# quickly evaluate the performance of PDERL and XPDERL, we provide executables that run on x64 Windows which already contain full dependencies. You just need to **double-click to run it** as the administrator. The file location is: "./Compiled file/win_x64/xpderl.exe". It works just as well as by debugging the code directly. When run the exe or start debug by VS2019, the default url for the start page is [http://localhost:8000/](http://localhost:8000/). You can theoretically access this address on any browser, but for the best experience, we recommend you access it on Edge or Chrome. 
 
 The Start Page looks like:
-![startpage.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README%20IMG/startpage.png "StratPage")
+![startpage.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README_IMG/startpage.png "StratPage")
 
 1. If you want to test the performance of PDERL and XPDERL in an interactive page, please click this link:
-![s1.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README%20IMG/s1.png "")
+![s1.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README_IMG/s1.png "")
 The interactive page looks like below. Click on the first point to set the center position, click on the second point to set the edge position to get a blue calculation area.
-![howto1.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README%20IMG/howto1.png "")
+![howto1.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README_IMG/howto1.png "")
 The results are shown below, with the green area visible at the center. Other experiments can be performed in the test Settings area on the right. However, it should be noted that the calculation range cannot be set too large when comparing with the accuracy of R3 algorithm, otherwise the calculation time will be very long.
-![result.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README%20IMG/result.png "")
+![result.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README_IMG/result.png "")
 
 2. If you want to use this test program as a Restful API service of viewshed analysis, follow the instructions here:
-![Instructions](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README%20IMG/instructions.png "")
+![Instructions](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README_IMG/instructions.png "")
 
 3. If you would like to repeat the experiment in paper "Fast approximate viewshed analysis based on regular grid digital elevation model——X-type partition proximity-direction-elevation spatial reference line algorithm", please click the link like in the picture below. The results of the experiment are saved in the form of the CSV file in "./RunningLog/". Clicking on the link just starts the experiment, and you must wait for the experiment to complete before completing the evaluation. Please pay attention to whether the size of the report file continues to grow. When it stops growing, it indicates that an experiment has ended. Due to the huge amount of computation, these experiments are very time-consuming, depending on the computer performance, usually more than 6 hours.
-![instructions2.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README%20IMG/instructions2.png "")
+![instructions2.png](https://github.com/blct-w/Pedrl-Algorithm/blob/master/README_IMG/instructions2.png "")
 
 # About the code
 
