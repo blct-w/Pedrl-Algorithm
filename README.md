@@ -23,7 +23,7 @@ Follow these steps to restore the project. If you don't plan to read the code, y
 
 # Run and test
 
-To help those unfamiliar with C# quickly evaluate the performance of PDERL and XPDERL, we provide executables that run on x64 Windows which already contain full dependencies. You just need to **double-click to run it** as the administrator. The file location is: "./Compiled file/win_x64/xpderl.exe". It works just as well as by debugging the code directly. When run the exe or start debug by VS2019, the default url for the start page is [http://localhost:8000/](http://localhost:8000/). You can theoretically access this address on any browser, but for the best experience, we recommend you access it on Edge or Chrome. 
+To help those unfamiliar with C# quickly evaluate the performance of PDERL and XPDERL, we provide executables that run on x64 Windows which already contain full dependencies. You just need to **double-click to run it** as the administrator. The file in: "./Compiled_file/win_x64/xpderl.exe", or you can download it here: [bin.zip](https://github.com/blct-w/Pedrl-Algorithm/releases/download/v2.0/bin.zip). It works just as well as by debugging the code directly. When run the exe or start debug by VS2019, the default url for the start page is [http://localhost:8000/](http://localhost:8000/). You can theoretically access this address on any browser, but for the best experience, we recommend you access it on Edge or Chrome. 
 
 The Start Page looks like:  
 ![startpage.png](./README_IMG/startpage.png "StratPage")
@@ -39,7 +39,7 @@ It should be noted that the code in the result drawing part of the interactive t
 2. If you want to use this test program as a Restful API service of viewshed analysis, follow the instructions here:  
 ![Instructions](./README_IMG/instructions.png "")  
 
-3. If you would like to repeat the experiment in paper "Fast approximate viewshed analysis based on regular grid digital elevation model——X-type partition proximity-direction-elevation spatial reference line algorithm", please click the link like in the picture below. The results of the experiment are saved in the form of the CSV file in "./RunningLog/". Clicking on the link just starts the experiment, and you must wait for the experiment to complete before completing the evaluation. Please pay attention to whether the size of the report file continues to grow. When it stops growing, it indicates that an experiment has ended. Due to the huge amount of computation, these experiments are very time-consuming, depending on the computer performance, usually more than 6 hours.  
+3. If you would like to repeat the experiments in paper "Fast approximate viewshed analysis based on regular grid digital elevation model——X-type partition proximity-direction-elevation spatial reference line algorithm", please click the link like in the picture below. The results of the experiment are saved in the form of the CSV file in "./RunningLog/". Clicking on the link just starts the experiment, and you must wait for the experiment to complete before completing the evaluation. Please pay attention to whether the size of the report file continues to grow. When it stops growing, it indicates that an experiment has ended. Due to the huge amount of computation, these experiments are very time-consuming, depending on the computer performance, usually more than 6 hours.  
 ![instructions2.png](./README_IMG/instructions2.png "")  
 
 # About the code
@@ -47,19 +47,18 @@ It should be noted that the code in the result drawing part of the interactive t
 ### Modify Network Port
 This is a web application, if you want to modify the web port. Find the file [./Code/XPDERL/Program.cs](./Code/XPDERL/Program.cs), modify it in the UseUrls(...): 
 ```C#
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args).UseUrls("http://*:8000")
-                .UseStartup<Startup>();
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args).UseUrls("http://*:8000").UseStartup<Startup>();
 ```
 ### The Service Entrance
 The api service is code in the [./Code/XPDERL/Controllers/DemController.cs](./Code/XPDERL/Controllers/DemController.cs); All network API are implemented in GET methods. Routing rule: "/api/dem/[declared method routing]", Where "declared method routing" is declared in the parameters of the HttpGet(). Some of the important WebAPIs are:
 ##### 1. Get current DEM and DEM list:
 ```C#
-		[HttpGet]
-		public ActionResult<object> Get()
-		{
-		    ...
-		}
+[HttpGet]
+public ActionResult<object> Get()
+{
+   ...
+}
 ```
 The result is JSON data:
 ```json
@@ -70,21 +69,21 @@ The result is JSON data:
 ```
 ##### 2. Set current DEM:
 ```C#
-		[HttpGet("setdem/{path}")]
-		public ActionResult<bool> SetDem(string path)
-		{
-		    ...
-		}
+[HttpGet("setdem/{path}")]
+public ActionResult<bool> SetDem(string path)
+{
+   ...
+}
 ```
 {path} is the DEM file name without a suffix, for example: Copernicus_DSM_COG_10_N41_00_E119_00_DEM. DEM files are placed in [./DEM/](./DEM/). You can place any DEM data in TIFF format in this directory, but please do not delete existing files used for experiments, otherwise you will not be able to repeat the experiments in the paper. DEM files in Tiff format are best recorded on a latitude and longitude grid. If recorded in map projection coordinates, change all subsequent latitude and longitude parameters to projected coordinates. Please restart the program after updating the DEM files.
 
 ##### 3. PDERL service:
 ```C#
-		[HttpGet("analysis_pderl/{lon}/{lat}/{toLon}/{toLat}/{dh}")]
-		public ActionResult<object> GetAnalysisDefault_Pderl(double lon, double lat, double toLon, double toLat, double dh)
-		{
-		    ...
-		}
+[HttpGet("analysis_pderl/{lon}/{lat}/{toLon}/{toLat}/{dh}")]
+public ActionResult<object> GetAnalysisDefault_Pderl(double lon, double lat, double toLon, double toLat, double dh)
+{
+   ...
+}
 ```
 {lon}{lat} is the longitude and latitude of the central point, {toLon}{toLat is the longitude and latitude of a point on the edge of the observation area, and {dh} is the altitude from the ground. The result is JSON data. For example, [http://localhost:8000/api/dem/analysis_pderl/97.5/28.5/97.55/28.53/2](http://localhost:8000/api/dem/analysis_pderl/97.5/28.5/97.55/28.53/2),
 you will get the results of PDERL square area analysis with 97.5° N, 28.5° E, 2m above the ground as the observation point, 97.55° N, 28.53° E to the edge point. **Note that the range of the test must not exceed the coverage of the DEM file you set up in the previous step.** The result will be:
@@ -109,41 +108,41 @@ Some of the results have been omitted for readability. "hierarchy" is the top, b
 
 ##### 4. XPDERL service:
 ```C#
-		[HttpGet("analysis_xpderl/{lon}/{lat}/{toLon}/{toLat}/{dh}")]
-		public ActionResult<object> GetAnalysisDefault_xPderl(double lon, double lat, double toLon, double toLat, double dh)
-		{
-		    ...
-		}
+[HttpGet("analysis_xpderl/{lon}/{lat}/{toLon}/{toLat}/{dh}")]
+public ActionResult<object> GetAnalysisDefault_xPderl(double lon, double lat, double toLon, double toLat, double dh)
+{
+   ...
+}
 ```
 Parameter meaning and return value are the same as PDERL.
 
 ##### 5. Experiment 1: speed:
 ```C#
-		[HttpGet("x_analysis_auto_test_time_without_r3")]
-		public ActionResult<string> X_DoAnalysis_AutoTest_TimeWithoutR3()
-		{
-		    ...
-		}
+[HttpGet("x_analysis_auto_test_time_without_r3")]
+public ActionResult<string> X_DoAnalysis_AutoTest_TimeWithoutR3()
+{
+   ...
+}
 ```
 This will start experiment 1, the results of which will be saved in the CSV report here [./RunningLog/](./RunningLog/). Please wait patiently for the calculation to complete (approximately 6 hours) due to the huge amount of calculation.
 
 ##### 6. Experiment 2: accuracy:
 ```C#
-		[HttpGet("x_analysis_auto_test_accuracy")]
-		public ActionResult<string> X_DoAnalysis_AutoTest_Accuracy()
-		{
-		    ...
-		}
+[HttpGet("x_analysis_auto_test_accuracy")]
+public ActionResult<string> X_DoAnalysis_AutoTest_Accuracy()
+{
+   ...
+}
 ```
 This will start experiment 2, the results of which will be saved in the CSV report here [./RunningLog/](./RunningLog/). Please wait patiently for the calculation to complete (approximately 6 hours) due to the huge amount of calculation.
 
 ##### 7. Experiment 3: aggregation of error points:
 ```C#
-		[HttpGet("x_analysis_auto_test_neighbor_err")]
-		public ActionResult<string> X_DoAnalysis_AutoTest_NeighborErr(int p = 0)
-		{
-		    ...
-		}
+[HttpGet("x_analysis_auto_test_neighbor_err")]
+public ActionResult<string> X_DoAnalysis_AutoTest_NeighborErr(int p = 0)
+{
+   ...
+}
 ```
 This will start experiment 3, the results of which will be saved in the CSV report here [./RunningLog/](./RunningLog/). "p=1" will test on Copernicus_DSM_COG_10_N41_00_E119_00_DEM.tiff; "p=2" will test on Copernicus_DSM_COG_10_N34_00_E114_00_DEM.tiff; "p=3" will test on Copernicus_DSM_COG_10_N28_00_E097_00_DEM.tiff. **Please note that experiments with different parameters cannot be carried out simultaneously.** Please wait patiently for the calculation to complete (approximately 6 hours) due to the huge amount of calculation.
 
@@ -153,19 +152,19 @@ The main function of PDERL and XPDERL is code in ["./Code/XPDERL/DemAnalysisHand
 
 ##### 1. PDERL:
 ```C#
-        public void DoAnalysisByPedrl(double centerX, double centerY, double centerH, double toEndPointX, double toEndPointY, double standH, out int[,] result, out double demMinX, out double demMinY, out double perX, out double perY)
-		{
-		    ...
-		}
+public void DoAnalysisByPedrl(double centerX, double centerY, double centerH, double toEndPointX, double toEndPointY, double standH, out int[,] result, out double demMinX, out double demMinY, out double perX, out double perY)
+{
+   ...
+}
 ```
 The "result" matrix stores the analysis results. "demMinX"/"demMinY" is the horizontal/vertical coordinate of a point in the lower left corner of the result. "perX" /"perY" is the horizontal/vertical spacing of the grid.
 
 ##### 2. XPDERL:
 ```C#
-        public void DoAnalysisByXPderl(double centerX, double centerY, double centerH, double toEndPointX, double toEndPointY, double standH, out int[,] result, out double demMinX, out double demMinY, out double perX, out double perY)
-		{
-		    ...
-		}
+public void DoAnalysisByXPderl(double centerX, double centerY, double centerH, double toEndPointX, double toEndPointY, double standH, out int[,] result, out double demMinX, out double demMinY, out double perX, out double perY)
+{
+...
+}
 ```
 The parameters have the same meaning as PDERL.
 
