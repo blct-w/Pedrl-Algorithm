@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\论文\\XPDERL\\二审\\相关文件\\Code and Data\\Code\\Xpderl\\xpderl.csproj": {}
+    "D:\\GitHub\\PDERL\\Pedrl-Algorithm\\Code\\Xpderl\\xpderl.csproj": {}
   },
   "projects": {
-    "D:\\论文\\XPDERL\\二审\\相关文件\\Code and Data\\Code\\Xpderl\\xpderl.csproj": {
+    "D:\\GitHub\\PDERL\\Pedrl-Algorithm\\Code\\Xpderl\\xpderl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\论文\\XPDERL\\二审\\相关文件\\Code and Data\\Code\\Xpderl\\xpderl.csproj",
+        "projectUniqueName": "D:\\GitHub\\PDERL\\Pedrl-Algorithm\\Code\\Xpderl\\xpderl.csproj",
         "projectName": "xpderl",
-        "projectPath": "D:\\论文\\XPDERL\\二审\\相关文件\\Code and Data\\Code\\Xpderl\\xpderl.csproj",
+        "projectPath": "D:\\GitHub\\PDERL\\Pedrl-Algorithm\\Code\\Xpderl\\xpderl.csproj",
         "packagesPath": "C:\\Users\\WCJ-PC\\.nuget\\packages\\",
-        "outputPath": "D:\\论文\\XPDERL\\二审\\相关文件\\Code and Data\\Code\\Xpderl\\obj\\publish\\win-x64\\",
+        "outputPath": "D:\\GitHub\\PDERL\\Pedrl-Algorithm\\Code\\Xpderl\\obj\\publish\\win-x64\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

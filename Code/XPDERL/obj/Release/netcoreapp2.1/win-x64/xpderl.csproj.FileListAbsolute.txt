@@ -19,3 +19,24 @@ D:\论文\XPDERL\二审\相关文件\Code and Data\Code\Xpderl\obj\Release\netco
 D:\论文\XPDERL\二审\相关文件\Code and Data\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.dll
 D:\论文\XPDERL\二审\相关文件\Code and Data\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.pdb
 D:\论文\XPDERL\二审\相关文件\Code and Data\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.genruntimeconfig.cache
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\appsettings.Development.json
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\appsettings.json
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\hostpolicy.dll
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\hostfxr.dll
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\xpderl.exe
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\xpderl.deps.json
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\xpderl.runtimeconfig.json
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\xpderl.runtimeconfig.dev.json
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\xpderl.dll
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\bin\Release\netcoreapp2.1\win-x64\xpderl.pdb
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.csproj.AssemblyReference.cache
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.AssemblyInfoInputs.cache
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.AssemblyInfo.cs
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.csproj.CoreCompileInputs.cache
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.RazorAssemblyInfo.cache
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.RazorAssemblyInfo.cs
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.RazorTargetAssemblyInfo.cache
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.dll
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.pdb
+D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\obj\Release\netcoreapp2.1\win-x64\xpderl.genruntimeconfig.cache

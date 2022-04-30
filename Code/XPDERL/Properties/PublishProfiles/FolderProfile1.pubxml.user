@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\GitHub\PDERL\Pedrl-Algorithm\Code\Xpderl\..\..\Compiled_file\win_x64</_PublishTargetUrl>
+    <History>True|2022-04-30T05:15:43.0676163Z;False|2022-04-30T13:15:10.9188472+08:00;</History>
+  </PropertyGroup>
+</Project>
