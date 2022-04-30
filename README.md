@@ -23,7 +23,7 @@ Follow these steps to restore the project. If you don't plan to read the code, y
 
 # Run and test
 
-To help those unfamiliar with C# quickly evaluate the performance of PDERL and XPDERL, we provide executables that run on x64 Windows which already contain full dependencies. You just need to **double-click to run it** as the administrator. The file in: "./Compiled_file/win_x64/xpderl.exe", or you can download it here: [bin.zip](https://github.com/blct-w/Pedrl-Algorithm/releases/download/v2.0/bin.zip). It works just as well as by debugging the code directly. When run the exe or start debug by VS2019, the default url for the start page is [http://localhost:8000/](http://localhost:8000/). You can theoretically access this address on any browser, but for the best experience, we recommend you access it on Edge or Chrome. 
+To help those unfamiliar with C# quickly evaluate the performance of PDERL and XPDERL, we provide executables that run on x64 Windows which already contain full dependencies. You just need to **double-click to run it** as the administrator. The start exe is: "./Compiled_file/win_x64/xpderl.exe", or you can download it here: [bin.zip](https://github.com/blct-w/Pedrl-Algorithm/releases/download/v2.0/bin.zip). It works just as well as by debugging the code directly. When run the exe or start debug by VS2019, the default url for the start page is [http://localhost:8000/](http://localhost:8000/). You can theoretically access this address on any browser, but for the best experience, we recommend you access it on Edge or Chrome. 
 
 The Start Page looks like:  
 ![startpage.png](./README_IMG/startpage.png "StratPage")
