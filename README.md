@@ -16,15 +16,15 @@ PDERL和XPDERL建立了“临近度-方向-俯仰度”(PDE)坐标系，并在�
 
 如果您想恢复代码工程并尝试修改它，请按照以下步骤恢复项目。如果您不打算阅读这些代码，也可以跳过这一节，我们提供了一套编译好的可执行文件，可以直接运行（详见[下一节](#运行和测试)）。
 
-1. 这个程序依赖于：.net Core 2.1 框架。如果需要，可以从这里下载SDK:[下载.net core 2.1](https://dotnet.microsoft.com/en-us/download/dotnet/2.1)。
-2.  安装Visual Studio 2019 (VS2019)或Visual Studio Code (VSCODE)，必要时部署c#开发环境。获得VS2019的帮助:[Get Start With Visual Studio](https://visualstudio.microsoft.com/zh-hans/vs/getting-started/)。获得VSCODE帮助:[Document for Visual Studio Code](https://code.visualstudio.com/docs)。关于如何用c#编程:[Learn to code in C#](https://dotnet.microsoft.com/en-us/learntocode)。学习使用.net技术实现WebAPI程序: [Link to microsoft document](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio)。
+1. 这个程序依赖于：.net Core 2.1 框架。如果需要，可以从这里下载SDK：[.net core 2.1](https://dotnet.microsoft.com/en-us/download/dotnet/2.1)。
+2.  安装Visual Studio 2019 (VS2019)或Visual Studio Code (VSCODE)，必要时部署c#开发环境。获得VS2019的帮助：[Get Start With Visual Studio](https://visualstudio.microsoft.com/zh-hans/vs/getting-started/)。获得VSCODE帮助：[Document for Visual Studio Code](https://code.visualstudio.com/docs)。关于如何用c#编程：[Learn to code in C#](https://dotnet.microsoft.com/en-us/learntocode)。学习使用.net技术实现WebAPI程序：[Link to microsoft document](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio)。
 3.  下载此项目的压缩文件并解压缩该文件。在[./Code/XPDERL.sln](./Code/XPDERL.sln)找到解决方案文件。在VS2019或VSCODE中打开它。
 4.  保持网络连接，等待自动解析并下载所有必要的相关文件。
 5.  启动调试，并按照开始页的引导测试算法。
 
 # 运行和测试
 
-为了帮助那些不熟悉c#的人快速评估PDERL和XPDERL的性能，我们提供了在64位Windows上运行的可执行文件。其已包含完整依赖，您只需要以管理员身份双击exe就可以运行它。文件目录在："./Compiled_file/win_x64/xpderl.exe"，或者你可以在这里下载压缩包文件:[bin.zip](https://github.com/blct-w/Pedrl-Algorithm/releases/download/v2.0/bin20220430.zip)。其运行效果与直接调试代码一样。当通过VS2019调试时，或直接运行exe启动时，测试起始页面的默认url是[http://localhost:8000/](http://localhost:8000/)。理论上你可以在任何浏览器上访问这个地址，但为了获得最佳体验，我们建议你在Edge或Chrome上访问它。
+为了帮助那些不熟悉c#的人快速评估PDERL和XPDERL的性能，我们提供了在64位Windows上运行的可执行文件。其已包含完整依赖，您只需要以管理员身份双击exe就可以运行它。文件目录在："./Compiled_file/win_x64/xpderl.exe"，或者你可以在这里下载压缩包文件：[bin.zip](https://github.com/blct-w/Pedrl-Algorithm/releases/download/v2.0/bin20220430.zip)。其运行效果与直接调试代码一样。当通过VS2019调试时，或直接运行exe启动时，测试起始页面的默认url是[http://localhost:8000/](http://localhost:8000/)。理论上你可以在任何浏览器上访问这个地址，但为了获得最佳体验，我们建议你在Edge或Chrome上访问它。
 
 起始页面如下：  
 ![startpage.png](./README_IMG/startpage.png "StratPage")
