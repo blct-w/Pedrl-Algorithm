@@ -85,14 +85,14 @@ public ActionResult<object> GetAnalysisDefault_Pderl(double lon, double lat, dou
    ...
 }
 ```
-{lon}{lat} is the longitude and latitude of the central point, {toLon}{toLat is the longitude and latitude of a point on the edge of the observation area, and {dh} is the altitude from the ground. The result is JSON data. For example, [http://localhost:8000/api/dem/analysis_pderl/97.5/28.5/97.55/28.53/2](http://localhost:8000/api/dem/analysis_pderl/97.5/28.5/97.55/28.53/2),
+{lon}{lat} is the longitude and latitude of the central point, {toLon}{toLat} is the longitude and latitude of a point on the edge of the observation area, and {dh} is the altitude from the ground. The result is JSON data. For example, [http://localhost:8000/api/dem/analysis_pderl/97.5/28.5/97.55/28.53/2](http://localhost:8000/api/dem/analysis_pderl/97.5/28.5/97.55/28.53/2),
 you will get the results of PDERL square area analysis with 97.5° N, 28.5° E, 2m above the ground as the observation point, 97.55° N, 28.53° E to the edge point. **Note that the range of the test must not exceed the coverage of the DEM file you set up in the previous step.** The result will be:
 ```json
 {
     "visiblePoints":{
         "hierarchy":
             [97.44195,28.4419441,97.55806,28.4419441,97.55806,28.5580559,97.44195,28.5580559,97.44195,28.4419441],
-        "values":[[0,0,0,...],[0,1,0,...],[1,1,0,...],...]
+        "values":[[0,0,0,...],[0,1,0,...],[1,1,0,...],...],
         "x":418,
         "y":418},
     "time":"00:00:00.0163397",
