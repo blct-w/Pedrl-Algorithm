@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="project-introduction">Project introduction</h1>
+<p>This project provides a test program for PDERL and XPDERL algorithms, in the form of Restful WebAPI with a test page.  This project is code in vs2019 with C# under .net core 2.1.</p>
+<p>Viewshed analysis based on the regular grid digital elevation model (DEM) is one of the basic functions of geographic information systems. Most traditional viewshed analysis algorithms are mainly carried out in a geospatial coordinate system, that create complexities when it is necessary to accurately express a perspective relationship. Moreover, it can only reduce the amount of calculation by using approximation methods, which result in decreased accuracy. Although the error ratio of approximation algorithms is low but uneven and thereby highly likely to result in continuous area visibility errors. Despite the quality of DEM data having improved significantly in the last decade, traditional approximation algorithms have been unable to take full advantage of the improved data.</p>
+<p>PDERL and XPDERL establishing a ‘proximity-direction-elevation’ (PDE) coordinate system and  get great improvements in accuracy and speed within it. It has been proved that the accuracy of PDERL is the same as the R3 algorithm and its speed is about half that of the XDraw and reference plane algorithms, much faster than R3. The computational speed of XPDERL is stable at high above the ground, slightly faster than XDraw and slightly slower than the reference plane algorithm; however, at low heights above the ground, it is much faster than both, especially in mountainous areas near the ground.  The XPDERL does not have false negative errors (identifying visible points as non-visible points), and can significantly reduce the error rate and the degree of error point aggregation compare to traditional viewshed analysis algorithms.</p>
+<p>See more about PDERL:
+Wu, C., Guan, L., Xia, Q. et al. PDERL: an accurate and fast algorithm with a novel perspective on solving the old viewshed analysis problem. Earth Sci Inform 14, 619–632 (2021). https://doi.org/10.1007/s12145-020-00545-7</p>
+<p>The algorithm has been submitted for patent application. You may use it without authorization: research, study, non-profit public welfare construction. Although the patent applicant has not yet specified the licensing policy for commercial use, if you plan to apply it to your business project, we strongly recommend you to contact first: blct_w@foxmail.com.</p>
+<h1 id="restore-the-project">Restore the project</h1>
+<p>Follow these steps to restore the project. If you don't plan to read the code, you can skip this section. We have a compiled executable ready for you to run directly.</p>
+<ol>
+<li>This program depends on the framework of .NET Core 2.1. Install the SDK  from here if necessary: <a href="https://dotnet.microsoft.com/en-us/download/dotnet/2.1">Download .net core 2.1</a>.</li>
+<li>Install Visual Studio 2019 (VS2019) or Visual Studio Code (VSCODE) and deploy C# develop environment if necessary. Get Help with VS2019: <a href="https://visualstudio.microsoft.com/zh-hans/vs/getting-started/">Get Start With Visual Studio</a>. Get Help with VSCODE: <a href="https://code.visualstudio.com/docs">Document for Visual Studio Code</a>. Get help with how to code with C# at: <a href="https://dotnet.microsoft.com/en-us/learntocode">Learn to code in C#</a>. Learn to implement a WebAPI program using.NET Core technology: <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&amp;tabs=visual-studio">Link to microsoft document</a>.</li>
+<li>Download the zip file of this project and unzip the file. Find the Solution File at <a href="./Code/XPDERL.sln">./Code/XPDERL.sln</a>. Open it in VS2019 or VSCODE.</li>
+<li>Stay connected to the Internet and wait for automatic resolution and download all necessary dependent files.</li>
+<li>Start debugging and follow the start page to test.</li>
+</ol>
+<h1 id="run-and-test">Run and test</h1>
+<p>To help those unfamiliar with C# quickly evaluate the performance of PDERL and XPDERL, we provide executables that run on x64 Windows which already contain full dependencies. You just need to <strong>double-click to run it</strong> as the administrator. The start EXE file is here: &quot;./Compiled_file/win_x64/xpderl.exe&quot; in the project, or you can download compiled files here: <a href="https://github.com/blct-w/Pedrl-Algorithm/releases/download/v2.0/bin20220430.zip">bin.zip</a>. It works just as well as by debugging the code directly. When run the exe or start debug by VS2019, the default url for the start page is <a href="http://localhost:8000/">http://localhost:8000/</a>. You can theoretically access this address on any browser, but for the best experience, we recommend you access it on Edge or Chrome.</p>
+<p>The Start Page looks like:<br>
+<img src="./README_IMG/startpage.png" alt="startpage.png" title="StratPage"></p>
+<ol>
+<li>
+<p>If you want to test the performance of PDERL and XPDERL in an interactive page, please click this link:<br>
+<img src="./README_IMG/s1.png" alt="s1.png"><br>
+The interactive page looks like below. Click on the first point to set the center position, click on the second point to set the edge position to get a blue calculation area.<br>
+<img src="./README_IMG/howto1.png" alt="howto1.png"><br>
+The results are shown below, with the green area visible at the center. Other experiments can be performed in the test Settings area on the right. However, it should be noted that the calculation range cannot be set too large when comparing with the accuracy of R3 algorithm, otherwise the calculation time will be very long.<br>
+<img src="./README_IMG/result.png" alt="result.png"><br>
+It should be noted that the code in the result drawing part of the interactive test interface is not efficient and may cause the result display to be sluggish, which is not caused by the calculation of PDERL and XPDERL. The calculation time of the algorithm is given at the bottom of the Setting (except the time of drawing results and network transmission). You can replace this section with a more efficient drawing method in your own code if you want.</p>
+</li>
+<li>
+<p>If you want to use this test program as a Restful API service of viewshed analysis, follow the instructions here:<br>
+<img src="./README_IMG/instructions.png" alt="Instructions"></p>
+</li>
+<li>
+<p>If you would like to repeat the experiments in paper &quot;Fast approximate viewshed analysis based on regular grid digital elevation model——X-type partition proximity-direction-elevation spatial reference line algorithm&quot;, please click the link like in the picture below. The results of the experiment are saved in the form of the CSV file in &quot;./RunningLog/&quot;. Clicking on the link just starts the experiment, and you must wait for the experiment to complete before completing the evaluation. Please pay attention to whether the size of the report file continues to grow. When it stops growing, it indicates that an experiment has ended. Due to the huge amount of computation, these experiments are very time-consuming, depending on the computer performance, usually more than 6 hours.<br>
+<img src="./README_IMG/instructions2.png" alt="instructions2.png"></p>
+</li>
+</ol>
+<h1 id="about-the-code">About the code</h1>
+<h3 id="modify-network-port">Modify Network Port</h3>
+<p>This is a web application, if you want to modify the web port. Find the file <a href="./Code/XPDERL/Program.cs">./Code/XPDERL/Program.cs</a>, modify it in the UseUrls(...):</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> IWebHostBuilder <span class="hljs-title">CreateWebHostBuilder</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span> =&gt;
+    WebHost.CreateDefaultBuilder(args).UseUrls(<span class="hljs-string">"http://*:8000"</span>).UseStartup&lt;Startup&gt;();
+</div></code></pre>
+<h3 id="the-service-entrance">The Service Entrance</h3>
+<p>The api service is code in the <a href="./Code/XPDERL/Controllers/DemController.cs">./Code/XPDERL/Controllers/DemController.cs</a>; All network API are implemented in GET methods. Routing rule: &quot;/api/dem/[declared method routing]&quot;, Where &quot;declared method routing&quot; is declared in the parameters of the HttpGet(). Some of the important WebAPIs are:</p>
+<h5 id="1-get-current-dem-and-dem-list">1. Get current DEM and DEM list:</h5>
+<pre class="hljs"><code><div>[<span class="hljs-meta">HttpGet</span>]
+<span class="hljs-function"><span class="hljs-keyword">public</span> ActionResult&lt;<span class="hljs-keyword">object</span>&gt; <span class="hljs-title">Get</span>(<span class="hljs-params"></span>)</span>
+{
+   ...
+}
+</div></code></pre>
+<p>The result is JSON data:</p>
+<pre class="hljs"><code><div>{
+    <span class="hljs-attr">"current"</span>:<span class="hljs-string">"Copernicus_DSM_COG_10_N28_00_E097_00_DEM"</span>,
+    <span class="hljs-attr">"allFiles"</span>:[<span class="hljs-string">"ASTGTM2_N28E097_dem"</span>,<span class="hljs-string">"Copernicus_DSM_COG_10_N28_00_E097_00_DEM"</span>,...]
+}
+</div></code></pre>
+<h5 id="2-set-current-dem">2. Set current DEM:</h5>
+<pre class="hljs"><code><div>[<span class="hljs-meta">HttpGet(<span class="hljs-meta-string">"setdem/{path}"</span>)</span>]
+<span class="hljs-function"><span class="hljs-keyword">public</span> ActionResult&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">SetDem</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> path</span>)</span>
+{
+   ...
+}
+</div></code></pre>
+<p>{path} is the DEM file name without a suffix, for example: Copernicus_DSM_COG_10_N41_00_E119_00_DEM. DEM files are placed in <a href="./DEM/">./DEM/</a>. You can place any DEM data in TIFF format in this directory, but please do not delete existing files used for experiments, otherwise you will not be able to repeat the experiments in the paper. DEM files in Tiff format are best recorded on a latitude and longitude grid. If recorded in map projection coordinates, change all subsequent latitude and longitude parameters to projected coordinates. Please restart the program after updating the DEM files.</p>
+<h5 id="3-pderl-service">3. PDERL service:</h5>
+<pre class="hljs"><code><div>[<span class="hljs-meta">HttpGet(<span class="hljs-meta-string">"analysis_pderl/{lon}/{lat}/{toLon}/{toLat}/{dh}"</span>)</span>]
+<span class="hljs-function"><span class="hljs-keyword">public</span> ActionResult&lt;<span class="hljs-keyword">object</span>&gt; <span class="hljs-title">GetAnalysisDefault_Pderl</span>(<span class="hljs-params"><span class="hljs-keyword">double</span> lon, <span class="hljs-keyword">double</span> lat, <span class="hljs-keyword">double</span> toLon, <span class="hljs-keyword">double</span> toLat, <span class="hljs-keyword">double</span> dh</span>)</span>
+{
+   ...
+}
+</div></code></pre>
+<p>{lon}{lat} is the longitude and latitude of the central point, {toLon}{toLat is the longitude and latitude of a point on the edge of the observation area, and {dh} is the altitude from the ground. The result is JSON data. For example, <a href="http://localhost:8000/api/dem/analysis_pderl/97.5/28.5/97.55/28.53/2">http://localhost:8000/api/dem/analysis_pderl/97.5/28.5/97.55/28.53/2</a>,
+you will get the results of PDERL square area analysis with 97.5° N, 28.5° E, 2m above the ground as the observation point, 97.55° N, 28.53° E to the edge point. <strong>Note that the range of the test must not exceed the coverage of the DEM file you set up in the previous step.</strong> The result will be:</p>
+<pre class="hljs"><code><div>{
+    <span class="hljs-attr">"visiblePoints"</span>:{
+        <span class="hljs-attr">"hierarchy"</span>:
+            [<span class="hljs-number">97.44195</span>,<span class="hljs-number">28.4419441</span>,<span class="hljs-number">97.55806</span>,<span class="hljs-number">28.4419441</span>,<span class="hljs-number">97.55806</span>,<span class="hljs-number">28.5580559</span>,<span class="hljs-number">97.44195</span>,<span class="hljs-number">28.5580559</span>,<span class="hljs-number">97.44195</span>,<span class="hljs-number">28.4419441</span>],
+        <span class="hljs-attr">"values"</span>:[[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,...],[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,...],[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,...],...]
+        <span class="hljs-string">"x"</span>:<span class="hljs-number">418</span>,
+        <span class="hljs-attr">"y"</span>:<span class="hljs-number">418</span>},
+    <span class="hljs-attr">"time"</span>:<span class="hljs-string">"00:00:00.0163397"</span>,
+    <span class="hljs-attr">"allCount"</span>:<span class="hljs-number">174724</span>
+}
+    
+</div></code></pre>
+<p>Some of the results have been omitted for readability. &quot;hierarchy&quot; is the top, bottom, left, and right edges of the result.
+&quot;Values&quot; is the visibility of each DEM grid point in the calculation area represented by 0 and 1. 0 is not visible, 1 is visible.
+&quot;x&quot;, &quot;y&quot; are the number of columns and rows in the resulting matrix.
+&quot;time&quot; is the calculation of time consumption.
+&quot;allCount&quot; is the total number of DEM grid points calculated.</p>
+<h5 id="4-xpderl-service">4. XPDERL service:</h5>
+<pre class="hljs"><code><div>[<span class="hljs-meta">HttpGet(<span class="hljs-meta-string">"analysis_xpderl/{lon}/{lat}/{toLon}/{toLat}/{dh}"</span>)</span>]
+<span class="hljs-function"><span class="hljs-keyword">public</span> ActionResult&lt;<span class="hljs-keyword">object</span>&gt; <span class="hljs-title">GetAnalysisDefault_xPderl</span>(<span class="hljs-params"><span class="hljs-keyword">double</span> lon, <span class="hljs-keyword">double</span> lat, <span class="hljs-keyword">double</span> toLon, <span class="hljs-keyword">double</span> toLat, <span class="hljs-keyword">double</span> dh</span>)</span>
+{
+   ...
+}
+</div></code></pre>
+<p>Parameter meaning and return value are the same as PDERL.</p>
+<h5 id="5-experiment-1-speed">5. Experiment 1: speed:</h5>
+<pre class="hljs"><code><div>[<span class="hljs-meta">HttpGet(<span class="hljs-meta-string">"x_analysis_auto_test_time_without_r3"</span>)</span>]
+<span class="hljs-function"><span class="hljs-keyword">public</span> ActionResult&lt;<span class="hljs-keyword">string</span>&gt; <span class="hljs-title">X_DoAnalysis_AutoTest_TimeWithoutR3</span>(<span class="hljs-params"></span>)</span>
+{
+   ...
+}
+</div></code></pre>
+<p>This will start experiment 1, the results of which will be saved in the CSV report here <a href="./RunningLog/">./RunningLog/</a>. Please wait patiently for the calculation to complete (approximately 6 hours) due to the huge amount of calculation.</p>
+<h5 id="6-experiment-2-accuracy">6. Experiment 2: accuracy:</h5>
+<pre class="hljs"><code><div>[<span class="hljs-meta">HttpGet(<span class="hljs-meta-string">"x_analysis_auto_test_accuracy"</span>)</span>]
+<span class="hljs-function"><span class="hljs-keyword">public</span> ActionResult&lt;<span class="hljs-keyword">string</span>&gt; <span class="hljs-title">X_DoAnalysis_AutoTest_Accuracy</span>(<span class="hljs-params"></span>)</span>
+{
+   ...
+}
+</div></code></pre>
+<p>This will start experiment 2, the results of which will be saved in the CSV report here <a href="./RunningLog/">./RunningLog/</a>. Please wait patiently for the calculation to complete (approximately 6 hours) due to the huge amount of calculation.</p>
+<h5 id="7-experiment-3-aggregation-of-error-points">7. Experiment 3: aggregation of error points:</h5>
+<pre class="hljs"><code><div>[<span class="hljs-meta">HttpGet(<span class="hljs-meta-string">"x_analysis_auto_test_neighbor_err"</span>)</span>]
+<span class="hljs-function"><span class="hljs-keyword">public</span> ActionResult&lt;<span class="hljs-keyword">string</span>&gt; <span class="hljs-title">X_DoAnalysis_AutoTest_NeighborErr</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span></span>)</span>
+{
+   ...
+}
+</div></code></pre>
+<p>This will start experiment 3, the results of which will be saved in the CSV report here <a href="./RunningLog/">./RunningLog/</a>. &quot;p=1&quot; will test on Copernicus_DSM_COG_10_N41_00_E119_00_DEM.tiff; &quot;p=2&quot; will test on Copernicus_DSM_COG_10_N34_00_E114_00_DEM.tiff; &quot;p=3&quot; will test on Copernicus_DSM_COG_10_N28_00_E097_00_DEM.tiff. <strong>Please note that experiments with different parameters cannot be carried out simultaneously.</strong> Please wait patiently for the calculation to complete (approximately 6 hours) due to the huge amount of calculation.</p>
+<h3 id="the-function-code-of-pderl-and-xpderl">The Function Code of PDERL and XPDERL</h3>
+<p>The main function of PDERL and XPDERL is code in <a href="./Code/XPDERL/DemAnalysisHandle.cs">&quot;./Code/XPDERL/DemAnalysisHandle.cs&quot;</a>;</p>
+<h5 id="1-pderl">1. PDERL:</h5>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DoAnalysisByPedrl</span>(<span class="hljs-params"><span class="hljs-keyword">double</span> centerX, <span class="hljs-keyword">double</span> centerY, <span class="hljs-keyword">double</span> centerH, <span class="hljs-keyword">double</span> toEndPointX, <span class="hljs-keyword">double</span> toEndPointY, <span class="hljs-keyword">double</span> standH, <span class="hljs-keyword">out</span> <span class="hljs-keyword">int</span>[,] result, <span class="hljs-keyword">out</span> <span class="hljs-keyword">double</span> demMinX, <span class="hljs-keyword">out</span> <span class="hljs-keyword">double</span> demMinY, <span class="hljs-keyword">out</span> <span class="hljs-keyword">double</span> perX, <span class="hljs-keyword">out</span> <span class="hljs-keyword">double</span> perY</span>)</span>
+{
+   ...
+}
+</div></code></pre>
+<p>The &quot;result&quot; matrix stores the analysis results. &quot;demMinX&quot;/&quot;demMinY&quot; is the horizontal/vertical coordinate of a point in the lower left corner of the result. &quot;perX&quot; /&quot;perY&quot; is the horizontal/vertical spacing of the grid.</p>
+<h5 id="2-xpderl">2. XPDERL:</h5>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DoAnalysisByXPderl</span>(<span class="hljs-params"><span class="hljs-keyword">double</span> centerX, <span class="hljs-keyword">double</span> centerY, <span class="hljs-keyword">double</span> centerH, <span class="hljs-keyword">double</span> toEndPointX, <span class="hljs-keyword">double</span> toEndPointY, <span class="hljs-keyword">double</span> standH, <span class="hljs-keyword">out</span> <span class="hljs-keyword">int</span>[,] result, <span class="hljs-keyword">out</span> <span class="hljs-keyword">double</span> demMinX, <span class="hljs-keyword">out</span> <span class="hljs-keyword">double</span> demMinY, <span class="hljs-keyword">out</span> <span class="hljs-keyword">double</span> perX, <span class="hljs-keyword">out</span> <span class="hljs-keyword">double</span> perY</span>)</span>
+{
+...
+}
+</div></code></pre>
+<p>The parameters have the same meaning as PDERL.</p>
+
+</body>
+</html>
