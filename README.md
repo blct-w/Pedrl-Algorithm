@@ -173,6 +173,7 @@ public void DoAnalysisByXPderl(double centerX, double centerY, double centerH, d
 &emsp;  
 &emsp;
 ***
+语言/Language: [中文](#项目介绍)/[English](#project-introduction)  
 # Project introduction
 
 This project provides a test program for PDERL and XPDERL algorithms, in the form of Restful WebAPI with a test page.  This project is code in vs2019 with C\# under .net core 2.1. 
