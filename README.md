@@ -8,6 +8,7 @@
 PDERL和XPDERL建立了“临近度-方向-俯仰度”(PDE)坐标系，并在精度和速度上得到了很大的提高。实验证明，PDERL算法的精度与R3算法相同，速度大约是XDraw和参考平面算法的一半，但远快于R3算法。XPDERL的计算速度在高空比较稳定，略快于XDraw，略慢于参考平面算法；然而，在离地面较低的高度，它比两者都要快得多，尤其是在接近地面的山区。并且，XPDERL不存在假阴性错误(将可见点识别为不可见点)，与传统视域分析算法相比，在错误率和错误点聚集程度等方面都得到了显著的降低。
 
 关于PDERL的更多信息请参考我们的论文：Wu, C., Guan, L., Xia, Q. et al. PDERL: an accurate and fast algorithm with a novel perspective on solving the old viewshed analysis problem. Earth Sci Inform 14, 619–632 (2021). https://doi.org/10.1007/s12145-020-00545-7  
+关于XPDERL的更多信息请参考我们的论文：Lingxiao Guan, Chuanjun Wu, Qing Xia, Gang Chen, Ang Li, Fast approximate viewshed analysis based on the regular-grid digital elevation model: X-type partition proximity-direction-elevation spatial reference line algorithm, Computers & Geosciences, Volume 167, 2022, 105213, ISSN 0098-3004, https://doi.org/10.1016/j.cageo.2022.105213.
 或CSDN博文：https://blog.csdn.net/springberlin/article/details/109459773
 
 需要说明的是，该算法已提交专利申请。当您用在研究、学习、非营利性公益建设中时不必申请授权。专利申请人尚未明确商业用许可政策，但如果您计划将其应用于商业项目，我们强烈建议您首先联系：blct_w@foxmail.com。
@@ -184,6 +185,8 @@ PDERL and XPDERL establishing a ‘proximity-direction-elevation’ (PDE) coordi
 
 See more about PDERL:
 Wu, C., Guan, L., Xia, Q. et al. PDERL: an accurate and fast algorithm with a novel perspective on solving the old viewshed analysis problem. Earth Sci Inform 14, 619–632 (2021). https://doi.org/10.1007/s12145-020-00545-7
+See more about XPDERL:
+Lingxiao Guan, Chuanjun Wu, Qing Xia, Gang Chen, Ang Li, Fast approximate viewshed analysis based on the regular-grid digital elevation model: X-type partition proximity-direction-elevation spatial reference line algorithm, Computers & Geosciences, Volume 167, 2022, 105213, ISSN 0098-3004, https://doi.org/10.1016/j.cageo.2022.105213.
 
 The algorithm has been submitted for patent application. You may use it without authorization: research, study, non-profit public welfare construction. Although the patent applicant has not yet specified the licensing policy for commercial use, if you plan to apply it to your business project, we strongly recommend you to contact first: blct_w@foxmail.com.
 
